@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="IMPULSE – Eva Buron, experte en management de transition et conseil pour les bailleurs sociaux. +10 ans d'expérience en gestion locative, pilotage opérationnel et conduite du changement." />
+  <meta name="keywords" content="management de transition, logement social, bailleurs sociaux, gestion locative, conduite du changement, Eva Buron, IMPULSE" />
+  <meta name="author" content="Eva Buron" />
+  <meta property="og:title" content="IMPULSE — Management de transition & conseil | Eva Buron" />
+  <meta property="og:description" content="Experte en management de transition pour les bailleurs sociaux. +10 ans d'expérience." />
+  <meta property="og:type" content="website" />
+  <meta name="robots" content="index, follow" />
+  <title>IMPULSE — Management de transition & conseil | Eva Buron</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ======================================================
+       RESET & BASE
+    ====================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #111111;
+      --bg-elevated: #1E1E1E;
+      --bg-subtle: #0D0D0D;
+      --text: #F0EDE8;
+      --text-muted: #8A8580;
+      --accent: #D95B30;
+      --accent-dim: rgba(217, 91, 48, 0.12);
+      --accent-glow: rgba(217, 91, 48, 0.18);
+      --ticker-color: #2A2520;
+      --transition-fast: 0.2s ease;
+      --transition-med: 0.4s ease;
+      --font-serif: 'DM Serif Display', Georgia, serif;
+      --font-sans: 'Outfit', system-ui, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @media (hover: hover) {
+      body { cursor: none; }
+      a, button, [data-magnetic] { cursor: none; }
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ======================================================
+       CUSTOM CURSOR
+    ====================================================== */
+    #cursor {
+      position: fixed;
+      top: 0; left: 0;
+      width: 20px; height: 20px;
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: border-color 0.2s, opacity 0.2s;
+      will-change: transform;
+      display: none;
+    }
+
+    @media (hover: hover) {
+      #cursor { display: block; }
+    }
+
+    #cursor.expanded {
+      width: 40px; height: 40px;
+      border-color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    /* ======================================================
+       NAV
+    ====================================================== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s, backdrop-filter 0.4s, border-color 0.4s;
+      border-bottom: 1px solid transparent;
+    }
+
+    nav.scrolled {
+      background: rgba(13, 13, 13, 0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom-color: rgba(240, 237, 232, 0.06);
+    }
+
+    .nav-logo {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 1.125rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      transition: color var(--transition-fast);
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-links .nav-cta a {
+      color: var(--text);
+      border: 1px solid rgba(240, 237, 232, 0.25);
+      padding: 0.45rem 1.1rem;
+      border-radius: 2px;
+      transition: border-color var(--transition-fast), color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .nav-links .nav-cta a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 4px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--text);
+      transition: transform 0.35s ease, opacity 0.3s ease;
+      transform-origin: center;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 11, 11, 0.97);
+      backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .mobile-menu.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .mobile-menu a {
+      font-family: var(--font-serif);
+      font-size: clamp(1.75rem, 6vw, 3rem);
+      color: var(--text);
+      letter-spacing: 0.02em;
+      transition: color var(--transition-fast);
+    }
+
+    .mobile-menu a:hover { color: var(--accent); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* ======================================================
+       HERO
+    ====================================================== */
+    #hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      overflow: hidden;
+    }
+
+    /* Noise texture */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Glow radial */
+    #hero::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70vmax;
+      height: 70vmax;
+      background: radial-gradient(circle, rgba(217, 91, 48, 0.10) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+    }
+
+    .hero-overline {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.7s ease 0.1s forwards;
+    }
+
+    .hero-h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.8rem, 8vw, 6.5rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin-bottom: 2rem;
+    }
+
+    /* Word mask animation */
+    .word-mask {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom;
+      padding-bottom: 0.06em;
+    }
+
+    .word-inner {
+      display: inline-block;
+      transform: translateY(110%);
+      transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .word-inner.visible {
+      transform: translateY(0);
+    }
+
+    .word-inner.overshoot {
+      transition: transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .hero-accent-word {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-rule {
+      width: 60px;
+      height: 2px;
+      background: var(--accent);
+      margin: 0 auto 2rem;
+      opacity: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: ruleIn 0.6s ease 1.2s forwards;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto 3rem;
+      line-height: 1.75;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 1.4s forwards;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 0.9375rem;
+      letter-spacing: 0.04em;
+      padding: 0.875rem 2.25rem;
+      border: none;
+      border-radius: 2px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 1.6s forwards;
+      transition: background var(--transition-fast), transform var(--transition-fast);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-cta::after {
+      content: '→';
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-cta:hover {
+      background: #c04a22;
+    }
+
+    .hero-cta:hover::after {
+      transform: translateX(4px);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 2s forwards;
+      z-index: 1;
+    }
+
+    .scroll-indicator span {
+      font-size: 0.6875rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes ruleIn {
+      to { opacity: 1; transform: scaleX(1); }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.1); }
+    }
+
+    /* ======================================================
+       MARQUEE / TICKER
+    ====================================================== */
+    .marquee-section {
+      overflow: hidden;
+      padding: 1.25rem 0;
+      background: var(--bg-subtle);
+      border-top: 1px solid rgba(240, 237, 232, 0.04);
+      border-bottom: 1px solid rgba(240, 237, 232, 0.04);
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 30s linear infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track { animation: none; }
+    }
+
+    .marquee-text {
+      white-space: nowrap;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 0.8125rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ticker-color);
+      padding-right: 3rem;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-33.333%); }
+    }
+
+    /* ======================================================
+       EXPERTISE — STICKY HORIZONTAL
+    ====================================================== */
+    #expertise {
+      position: relative;
+    }
+
+    .expertise-sticky-container {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .expertise-inner {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      padding: 0 5vw;
+      gap: 6vw;
+    }
+
+    .expertise-label {
+      flex: 0 0 auto;
+      max-width: 280px;
+    }
+
+    .section-tag {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .expertise-label h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .expertise-label p {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .expertise-cards-wrapper {
+      flex: 1;
+      overflow: visible;
+    }
+
+    .expertise-cards {
+      display: flex;
+      gap: 1.5rem;
+      will-change: transform;
+    }
+
+    .expertise-card {
+      flex: 0 0 clamp(280px, 28vw, 360px);
+      background: var(--bg-elevated);
+      border: 1px solid rgba(240, 237, 232, 0.06);
+      border-radius: 4px;
+      padding: 2.5rem;
+      transition: border-color 0.35s ease, transform 0.35s ease;
+    }
+
+    .expertise-card:hover {
+      border-color: rgba(217, 91, 48, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      color: var(--accent);
+      font-size: 1.125rem;
+    }
+
+    .expertise-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .expertise-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(217, 91, 48, 0.3);
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+    }
+
+    /* Scroll spacer for sticky */
+    .expertise-scroll-spacer {
+      height: 200vh;
+    }
+
+    /* Mobile fallback */
+    @media (max-width: 900px) {
+      .expertise-sticky-container {
+        position: static;
+        height: auto;
+        overflow: visible;
+      }
+      .expertise-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 4rem 1.5rem;
+        gap: 3rem;
+      }
+      .expertise-cards {
+        flex-direction: column;
+        transform: none !important;
+      }
+      .expertise-card {
+        flex: 1;
+        max-width: 100%;
+      }
+      .expertise-scroll-spacer {
+        display: none;
+      }
+    }
+
+    /* ======================================================
+       CHIFFRES CLÉS
+    ====================================================== */
+    #chiffres {
+      padding: 7rem 2rem;
+      background: var(--bg-subtle);
+      text-align: center;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .stat-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .stat-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0.1em;
+    }
+
+    .stat-suffix {
+      font-size: 0.5em;
+      color: var(--accent);
+      padding-top: 0.15em;
+    }
+
+    .stat-label {
+      font-size: 0.8125rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+    }
+
+    /* ======================================================
+       À PROPOS
+    ====================================================== */
+    #apropos {
+      padding: 8rem 5vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .apropos-photo-wrap {
+      position: relative;
+    }
+
+    .apropos-photo {
+      aspect-ratio: 4/5;
+      background: var(--bg-elevated);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      transition: clip-path 1s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .apropos-photo.revealed {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .apropos-photo-inner {
+      width: 100%;
+      height: 100%;
+      background: var(--bg-elevated);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.8125rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+      transition: clip-path 1.1s cubic-bezier(0.77, 0, 0.175, 1) 0.1s;
+    }
+
+    .apropos-photo-inner.revealed {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    /* Orange frame offset */
+    .apropos-photo-wrap::before {
+      content: '';
+      position: absolute;
+      top: 1.25rem;
+      left: 1.25rem;
+      right: -1.25rem;
+      bottom: -1.25rem;
+      border: 1.5px solid var(--accent);
+      border-radius: 2px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.6s ease 0.8s;
+    }
+
+    .apropos-photo-wrap.revealed::before {
+      opacity: 1;
+    }
+
+    .apropos-content {}
+
+    .apropos-content .section-tag { margin-bottom: 1rem; }
+
+    .apropos-content h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.875rem, 3vw, 2.75rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+    }
+
+    .bio-line {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.8;
+      opacity: 0.12;
+      transition: opacity 0.6s ease;
+      margin-bottom: 0.75rem;
+    }
+
+    .bio-line.visible {
+      opacity: 1;
+    }
+
+    .bio-signature {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.125rem;
+      color: var(--accent);
+      margin-top: 2rem;
+      opacity: 0.12;
+      transition: opacity 0.6s ease 0.3s;
+    }
+
+    .bio-signature.visible { opacity: 1; }
+
+    @media (max-width: 768px) {
+      #apropos {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 5rem 1.5rem;
+      }
+    }
+
+    /* ======================================================
+       PARCOURS — TIMELINE
+    ====================================================== */
+    #parcours {
+      padding: 8rem 5vw;
+      background: var(--bg-subtle);
+    }
+
+    .parcours-header {
+      max-width: 520px;
+      margin: 0 auto 5rem;
+      text-align: center;
+    }
+
+    .parcours-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      margin-top: 1rem;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1.5px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 3rem;
+      padding-bottom: 3.5rem;
+      opacity: 0;
+      transform: translateX(-16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -5px;
+      top: 0.3rem;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(217, 91, 48, 0.5);
+    }
+
+    .timeline-date {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-role {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-org {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+
+    /* ======================================================
+       CONTACT
+    ====================================================== */
+    #contact {
+      padding: 9rem 2rem 7rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #contact::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60vmax;
+      height: 60vmax;
+      background: radial-gradient(circle, rgba(217, 91, 48, 0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .contact-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .contact-inner h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.25rem, 5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.12;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-inner h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .contact-inner p {
+      color: var(--text-muted);
+      font-weight: 300;
+      font-size: 0.9375rem;
+      line-height: 1.75;
+      margin-bottom: 3rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      font-size: 0.9375rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      transition: color var(--transition-fast);
+    }
+
+    .contact-detail:hover { color: var(--text); }
+
+    .contact-detail svg {
+      width: 16px; height: 16px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    /* Magnetic button */
+    .magnetic-wrap {
+      display: inline-block;
+      position: relative;
+    }
+
+    .btn-magnetic {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: transparent;
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 0.9375rem;
+      letter-spacing: 0.04em;
+      padding: 1rem 2.5rem;
+      border: 1.5px solid rgba(240, 237, 232, 0.2);
+      border-radius: 2px;
+      transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+      position: relative;
+      will-change: transform;
+    }
+
+    .btn-magnetic:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-magnetic svg {
+      width: 16px; height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-magnetic:hover svg { transform: translateX(4px); }
+
+    /* ======================================================
+       FOOTER
+    ====================================================== */
+    footer {
+      background: var(--bg-subtle);
+      border-top: 1px solid rgba(240, 237, 232, 0.06);
+      padding: 2.5rem 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    .footer-legal {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    .footer-legal a {
+      border-bottom: 1px solid rgba(138, 133, 128, 0.3);
+      transition: color var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .footer-legal a:hover {
+      color: var(--text);
+      border-color: var(--text);
+    }
+
+    /* ======================================================
+       UTILS
+    ====================================================== */
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+
+    /* Smooth appear for sections */
+    .reveal-section {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ======================================================
+       REDUCED MOTION
+    ====================================================== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .word-inner { transform: none !important; }
+      .hero-overline, .hero-rule, .hero-subtitle, .hero-cta,
+      .scroll-indicator { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ====================================================
+       CUSTOM CURSOR
+  ==================================================== -->
+  <div id="cursor" aria-hidden="true"></div>
+
+  <!-- ====================================================
+       MOBILE MENU
+  ==================================================== -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu navigation" aria-hidden="true">
+    <a href="#expertise" class="mobile-link">Expertise</a>
+    <a href="#apropos" class="mobile-link">À propos</a>
+    <a href="#parcours" class="mobile-link">Parcours</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+  </div>
+
+  <!-- ====================================================
+       NAV
+  ==================================================== -->
+  <nav id="nav" role="navigation" aria-label="Navigation principale">
+    <a href="#" class="nav-logo" aria-label="IMPULSE — retour en haut">IMPULSE</a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#parcours">Parcours</a></li>
+      <li class="nav-cta"><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ====================================================
+       HERO
+  ==================================================== -->
+  <section id="hero" aria-label="En-tête principal">
+    <div class="hero-content">
+      <p class="hero-overline">Management de transition &amp; conseil</p>
+
+      <h1 class="hero-h1" id="heroH1" aria-label="Expert en logement social">
+        <!-- Words inserted by JS -->
+      </h1>
+
+      <div class="hero-rule" aria-hidden="true"></div>
+
+      <p class="hero-subtitle">+10 ans d'expérience en gestion locative, management opérationnel et conduite du changement au service des bailleurs sociaux.</p>
+
+      <a href="#contact" class="hero-cta">Prenons contact</a>
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       MARQUEE
+  ==================================================== -->
+  <div class="marquee-section" aria-hidden="true">
+    <div class="marquee-track" id="marqueeTrack">
+      <span class="marquee-text">MANAGEMENT · TRANSITION · CONFORMITÉ · PILOTAGE · RECOUVREMENT · TRANSFORMATION · AGILITÉ · COHÉSION · EXPERTISE · MÉTHODE · </span>
+      <span class="marquee-text">MANAGEMENT · TRANSITION · CONFORMITÉ · PILOTAGE · RECOUVREMENT · TRANSFORMATION · AGILITÉ · COHÉSION · EXPERTISE · MÉTHODE · </span>
+      <span class="marquee-text">MANAGEMENT · TRANSITION · CONFORMITÉ · PILOTAGE · RECOUVREMENT · TRANSFORMATION · AGILITÉ · COHÉSION · EXPERTISE · MÉTHODE · </span>
+    </div>
+  </div>
+
+  <!-- ====================================================
+       EXPERTISE
+  ==================================================== -->
+  <div id="expertise" style="position:relative;">
+    <div class="expertise-scroll-spacer" id="expertiseScrollSpacer"></div>
+
+    <div class="expertise-sticky-container" id="expertiseStickyContainer">
+      <div class="expertise-inner">
+        <div class="expertise-label reveal-section">
+          <span class="section-tag">01 — Expertise</span>
+          <h2>Trois axes d'intervention</h2>
+          <p>Des missions sur-mesure adaptées aux réalités opérationnelles des bailleurs sociaux.</p>
+        </div>
+
+        <div class="expertise-cards-wrapper">
+          <div class="expertise-cards" id="expertiseCards">
+
+            <article class="expertise-card">
+              <div class="card-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <h3>Management des services</h3>
+              <p>Prise en charge de la direction de services en situation d'intérim ou de vacance de poste. Pilotage des équipes, coordination des activités locatives et traitement des dossiers contentieux.</p>
+              <div class="tags">
+                <span class="tag">Poste vacant</span>
+                <span class="tag">Pilotage</span>
+                <span class="tag">Contentieux</span>
+              </div>
+            </article>
+
+            <article class="expertise-card">
+              <div class="card-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <h3>Conduite du changement</h3>
+              <p>Accompagnement des organisations dans leurs mutations réglementaires et structurelles. Préparation aux contrôles ANCOLS, mise en conformité des procédures et formation des collaborateurs.</p>
+              <div class="tags">
+                <span class="tag">ANCOLS</span>
+                <span class="tag">Conformité</span>
+                <span class="tag">Formation</span>
+              </div>
+            </article>
+
+            <article class="expertise-card">
+              <div class="card-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              </div>
+              <h3>Pilotage de projets</h3>
+              <p>Déploiement et suivi de projets stratégiques liés aux obligations réglementaires du secteur : SLS, OPS, RPLS, digitalisation avec l'outil SELFY. De la conception à la mise en œuvre.</p>
+              <div class="tags">
+                <span class="tag">SLS</span>
+                <span class="tag">OPS</span>
+                <span class="tag">RPLS</span>
+                <span class="tag">SELFY</span>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================
+       CHIFFRES CLÉS
+  ==================================================== -->
+  <section id="chiffres" aria-labelledby="chiffresTitle">
+    <div class="section-header reveal-section">
+      <span class="section-tag">02 — Impact</span>
+      <h2 id="chiffresTitle" style="font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:400;margin-top:0.5rem;">Des résultats concrets</h2>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-item" data-target="10" data-suffix="+&nbsp;Années">
+        <div class="stat-number">
+          <span class="stat-count">0</span><span class="stat-suffix">+</span>
+        </div>
+        <p class="stat-label">Années d'expérience</p>
+      </div>
+      <div class="stat-item" data-target="40" data-suffix="">
+        <div class="stat-number">
+          <span class="stat-count">0</span>
+        </div>
+        <p class="stat-label">Collaborateurs managés</p>
+      </div>
+      <div class="stat-item" data-target="99" data-suffix="%">
+        <div class="stat-number">
+          <span class="stat-count">0</span><span class="stat-suffix">%</span>
+        </div>
+        <p class="stat-label">Taux de recouvrement</p>
+      </div>
+      <div class="stat-item" data-target="82" data-suffix="k">
+        <div class="stat-number">
+          <span class="stat-count">0</span><span class="stat-suffix">k</span>
+        </div>
+        <p class="stat-label">Logements gérés</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       À PROPOS
+  ==================================================== -->
+  <section id="apropos" aria-labelledby="aproposTitle">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;padding:8rem 5vw;">
+
+      <div class="apropos-photo-wrap" id="photoWrap">
+        <div class="apropos-photo">
+          <div class="apropos-photo-inner" id="photoInner">
+            <span>Eva Buron</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="apropos-content">
+        <span class="section-tag">03 — À propos</span>
+        <h2 id="aproposTitle">Une expertise forgée sur le terrain</h2>
+
+        <p class="bio-line">Experte en management de transition et conseil auprès des bailleurs sociaux, Eva Buron accompagne les organismes HLM dans leurs défis opérationnels, réglementaires et humains depuis plus de dix ans.</p>
+
+        <p class="bio-line">Après des débuts en gestion locative qui lui ont permis de maîtriser chaque dimension du métier — attribution, contentieux, recouvrement, relations locataires —, elle s'est imposée comme manager de transition, intervenant là où les organisations ont besoin d'un appui immédiat et efficace.</p>
+
+        <p class="bio-line">Son approche mêle rigueur opérationnelle et intelligence humaine. Elle comprend les contraintes du secteur social, ses codes, ses obligations réglementaires (ANCOLS, SLS, OPS, RPLS) et ses enjeux de transformation digitale.</p>
+
+        <p class="bio-line">Fondatrice d'IMPULSE, elle propose ses services en mission courte ou longue durée, en intervenante externe ou en remplacement, pour permettre aux organisations de maintenir le cap dans les moments critiques.</p>
+
+        <p class="bio-signature" id="bioSignature">— Eva Buron</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====================================================
+       PARCOURS
+  ==================================================== -->
+  <section id="parcours" aria-labelledby="parcoursTitle">
+    <div class="parcours-header reveal-section">
+      <span class="section-tag">04 — Parcours</span>
+      <h2 id="parcoursTitle">Une trajectoire ancrée dans le terrain</h2>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item" data-delay="0">
+        <div class="timeline-dot"></div>
+        <p class="timeline-date">2024 — 2025</p>
+        <h3 class="timeline-role">Fondatrice — Management de transition</h3>
+        <p class="timeline-org">IMPULSE Conseil</p>
+        <p class="timeline-desc">Création du cabinet spécialisé en management de transition pour les bailleurs sociaux. Accompagnement de plusieurs organismes sur des missions de direction de service, conduite du changement et pilotage de projets réglementaires.</p>
+      </div>
+
+      <div class="timeline-item" data-delay="100">
+        <div class="timeline-dot"></div>
+        <p class="timeline-date">2021 — 2024</p>
+        <h3 class="timeline-role">Directrice de la gestion locative</h3>
+        <p class="timeline-org">Bailleur social — Région Île-de-France</p>
+        <p class="timeline-desc">Direction d'un service de 40 collaborateurs gérant 82 000 logements. Pilotage des obligations SLS, OPS, RPLS. Déploiement de l'outil SELFY. Taux de recouvrement porté à 99%. Préparation et suivi du contrôle ANCOLS.</p>
+      </div>
+
+      <div class="timeline-item" data-delay="200">
+        <div class="timeline-dot"></div>
+        <p class="timeline-date">2019 — 2021</p>
+        <h3 class="timeline-role">Responsable de la gestion locative</h3>
+        <p class="timeline-org">Organisme HLM — Grand Paris</p>
+        <p class="timeline-desc">Management d'une équipe de 18 personnes. Réorganisation des procédures de contentieux et d'attribution. Mise en place d'indicateurs de performance et de tableaux de bord opérationnels.</p>
+      </div>
+
+      <div class="timeline-item" data-delay="300">
+        <div class="timeline-dot"></div>
+        <p class="timeline-date">2017 — 2019</p>
+        <h3 class="timeline-role">Chargée de mission — Conduite du changement</h3>
+        <p class="timeline-org">Cabinet conseil — Secteur logement social</p>
+        <p class="timeline-desc">Accompagnement d'organismes HLM dans leurs transformations organisationnelles et digitales. Formations, audits de processus, rédaction de procédures et référentiels métier.</p>
+      </div>
+
+      <div class="timeline-item" data-delay="400">
+        <div class="timeline-dot"></div>
+        <p class="timeline-date">2016 — 2017</p>
+        <h3 class="timeline-role">Responsable d'agence locative</h3>
+        <p class="timeline-org">SA HLM — Loire-Atlantique</p>
+        <p class="timeline-desc">Gestion d'un portefeuille de 2 400 logements. Encadrement de 6 collaborateurs. Traitement du contentieux, relations avec les associations et partenaires sociaux. Résultats : réduction de 28% de la vacance.</p>
+      </div>
+
+      <div class="timeline-item" data-delay="500">
+        <div class="timeline-dot"></div>
+        <p class="timeline-date">Avant 2016</p>
+        <h3 class="timeline-role">Gestionnaire locatif</h3>
+        <p class="timeline-org">Divers organismes — Ouest de la France</p>
+        <p class="timeline-desc">Apprentissage des fondamentaux : attribution, gestion des baux, traitement des réclamations, suivi des impayés et accompagnement social des locataires en difficulté.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====================================================
+       CONTACT
+  ==================================================== -->
+  <section id="contact" aria-labelledby="contactTitle">
+    <div class="contact-inner reveal-section">
+      <span class="section-tag">05 — Contact</span>
+      <h2 id="contactTitle">Parlons de votre <em>projet</em></h2>
+      <p>Vous êtes bailleur social et cherchez un appui opérationnel immédiat ? Discutons de vos besoins et de la manière dont IMPULSE peut vous accompagner.</p>
+
+      <div class="contact-details">
+        <a href="tel:+33686492754" class="contact-detail">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.68 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.59 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 5.55 5.55l1.11-1.11a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          06 86 49 27 54
+        </a>
+        <a href="mailto:eva.buron@impulse-conseil.com" class="contact-detail">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          eva.buron@impulse-conseil.com
+        </a>
+      </div>
+
+      <div class="magnetic-wrap" id="magneticWrap">
+        <a href="mailto:eva.buron@impulse-conseil.com" class="btn-magnetic" id="magneticBtn" data-magnetic>
+          Envoyer un email
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       FOOTER
+  ==================================================== -->
+  <footer>
+    <span class="footer-logo">IMPULSE</span>
+    <p class="footer-copy">© 2025 Eva Buron — IMPULSE Conseil. Tous droits réservés.</p>
+    <p class="footer-legal">Management de transition &amp; conseil — Logement social</p>
+  </footer>
+
+  <!-- ====================================================
+       JAVASCRIPT
+  ==================================================== -->
+  <script>
+  (function () {
+    'use strict';
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canHover = window.matchMedia('(hover: hover)').matches;
+
+    /* ==================================================
+       CUSTOM CURSOR
+    ================================================== */
+    if (canHover && !prefersReduced) {
+      const cursor = document.getElementById('cursor');
+      let mouseX = 0, mouseY = 0;
+      let cursorX = 0, cursorY = 0;
+      const LERP = 0.15;
+
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      const interactiveSelector = 'a, button, [data-magnetic], input, textarea, label';
+
+      document.addEventListener('mouseover', (e) => {
+        if (e.target.closest(interactiveSelector)) {
+          cursor.classList.add('expanded');
+        }
+      });
+
+      document.addEventListener('mouseout', (e) => {
+        if (e.target.closest(interactiveSelector)) {
+          cursor.classList.remove('expanded');
+        }
+      });
+
+      function animateCursor() {
+        cursorX += (mouseX - cursorX) * LERP;
+        cursorY += (mouseY - cursorY) * LERP;
+        cursor.style.transform = `translate(${cursorX - 10}px, ${cursorY - 10}px)`;
+        requestAnimationFrame(animateCursor);
+      }
+
+      animateCursor();
+    }
+
+    /* ==================================================
+       NAV — SCROLL GLASSMORPHISM
+    ================================================== */
+    const nav = document.getElementById('nav');
+
+    const onNavScroll = () => {
+      if (window.scrollY > 60) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', onNavScroll, { passive: true });
+
+    /* ==================================================
+       HAMBURGER MENU
+    ================================================== */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+
+    function toggleMenu(force) {
+      menuOpen = (force !== undefined) ? force : !menuOpen;
+      hamburger.classList.toggle('active', menuOpen);
+      mobileMenu.classList.toggle('open', menuOpen);
+      hamburger.setAttribute('aria-expanded', menuOpen);
+      mobileMenu.setAttribute('aria-hidden', !menuOpen);
+      document.body.style.overflow = menuOpen ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', () => toggleMenu());
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => toggleMenu(false));
+    });
+
+    /* ==================================================
+       HERO H1 WORD ANIMATION
+    ================================================== */
+    const heroH1 = document.getElementById('heroH1');
+    const words = ['Expert', 'en', 'logement', 'social'];
+
+    words.forEach((word, i) => {
+      const mask = document.createElement('span');
+      mask.className = 'word-mask';
+
+      const inner = document.createElement('span');
+      inner.className = 'word-inner';
+
+      const isLast = i === words.length - 1;
+      const isAccent = word === 'social';
+
+      if (isLast) inner.classList.add('overshoot');
+      if (isAccent) inner.classList.add('hero-accent-word');
+
+      inner.textContent = word;
+      mask.appendChild(inner);
+      heroH1.appendChild(mask);
+
+      if (i < words.length - 1) {
+        heroH1.appendChild(document.createTextNode(' '));
+      }
+
+      if (!prefersReduced) {
+        const delay = 0.55 + i * 0.13 + (isLast ? 0.08 : 0);
+        setTimeout(() => {
+          inner.classList.add('visible');
+        }, delay * 1000);
+      } else {
+        inner.classList.add('visible');
+      }
+    });
+
+    /* ==================================================
+       EXPERTISE — STICKY HORIZONTAL SCROLL
+    ================================================== */
+    const expertiseSection = document.getElementById('expertise');
+    const expertiseSpacer = document.getElementById('expertiseScrollSpacer');
+    const expertiseCards = document.getElementById('expertiseCards');
+    const expertiseStickyContainer = document.getElementById('expertiseStickyContainer');
+
+    function setupExpertiseScroll() {
+      // Only on desktop
+      if (window.innerWidth <= 900 || prefersReduced) return;
+
+      const onExpertiseScroll = () => {
+        const rect = expertiseSection.getBoundingClientRect();
+        const sectionTop = expertiseSection.offsetTop;
+        const sectionHeight = expertiseSpacer.offsetHeight;
+        const scrolled = window.scrollY - sectionTop;
+        const progress = Math.min(Math.max(scrolled / (sectionHeight - window.innerHeight), 0), 1);
+
+        // Cards total width minus visible area
+        const cardsWidth = expertiseCards.scrollWidth;
+        const wrapperWidth = expertiseCards.parentElement.offsetWidth;
+        const maxTranslate = cardsWidth - wrapperWidth;
+
+        const tx = -progress * maxTranslate;
+        expertiseCards.style.transform = `translateX(${tx}px)`;
+      };
+
+      window.addEventListener('scroll', onExpertiseScroll, { passive: true });
+    }
+
+    setupExpertiseScroll();
+
+    /* ==================================================
+       INTERSECTION OBSERVER — GENERAL
+    ================================================== */
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal-section, .timeline-item, .bio-line, .bio-signature').forEach(el => {
+      io.observe(el);
+    });
+
+    /* Timeline stagger */
+    document.querySelectorAll('.timeline-item').forEach((item, i) => {
+      const delay = parseInt(item.dataset.delay || 0, 10);
+      item.style.transitionDelay = prefersReduced ? '0ms' : `${delay}ms`;
+    });
+
+    /* ==================================================
+       STATS COUNTER
+    ================================================== */
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateStat(entry.target);
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    document.querySelectorAll('.stat-item').forEach((item, i) => {
+      item.style.transitionDelay = `${i * 120}ms`;
+      statsObserver.observe(item);
+    });
+
+    function animateStat(el) {
+      el.classList.add('visible');
+      const target = parseInt(el.dataset.target, 10);
+      const countEl = el.querySelector('.stat-count');
+      const duration = prefersReduced ? 0 : 800;
+      const start = performance.now();
+
+      function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+      function update(now) {
+        const elapsed = now - start;
+        const t = Math.min(elapsed / duration, 1);
+        const value = Math.round(easeOut(t) * target);
+        countEl.textContent = value;
+        if (t < 1) requestAnimationFrame(update);
+        else countEl.textContent = target;
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    /* ==================================================
+       À PROPOS — PHOTO REVEAL
+    ================================================== */
+    const photoWrap = document.getElementById('photoWrap');
+    const photoInner = document.getElementById('photoInner');
+
+    const photoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          photoWrap.classList.add('revealed');
+          photoInner.classList.add('revealed');
+          photoObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    if (photoWrap) photoObserver.observe(photoWrap);
+
+    /* ==================================================
+       MAGNETIC BUTTON
+    ================================================== */
+    if (canHover && !prefersReduced) {
+      const magneticWrap = document.getElementById('magneticWrap');
+      const magneticBtn = document.getElementById('magneticBtn');
+
+      if (magneticWrap && magneticBtn) {
+        let btnX = 0, btnY = 0;
+        let targetX = 0, targetY = 0;
+        const MAX_DIST = 8;
+        const LERP_BTN = 0.12;
+        let raf;
+
+        magneticWrap.addEventListener('mousemove', (e) => {
+          const rect = magneticBtn.getBoundingClientRect();
+          const cx = rect.left + rect.width / 2;
+          const cy = rect.top + rect.height / 2;
+          const dx = e.clientX - cx;
+          const dy = e.clientY - cy;
+          targetX = Math.max(-MAX_DIST, Math.min(MAX_DIST, dx * 0.3));
+          targetY = Math.max(-MAX_DIST, Math.min(MAX_DIST, dy * 0.3));
+        });
+
+        magneticWrap.addEventListener('mouseleave', () => {
+          targetX = 0;
+          targetY = 0;
+        });
+
+        function animateMagnetic() {
+          btnX += (targetX - btnX) * LERP_BTN;
+          btnY += (targetY - btnY) * LERP_BTN;
+          magneticBtn.style.transform = `translate(${btnX.toFixed(2)}px, ${btnY.toFixed(2)}px)`;
+          raf = requestAnimationFrame(animateMagnetic);
+        }
+
+        animateMagnetic();
+      }
+    }
+
+    /* ==================================================
+       SMOOTH SCROLL (for older browsers)
+    ================================================== */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    /* ==================================================
+       RESIZE — RESET EXPERTISE ON RESIZE
+    ================================================== */
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        if (expertiseCards) {
+          expertiseCards.style.transform = '';
+        }
+      }, 300);
+    });
+
+  })();
+  </script>
+
+</body>
+</html>
