@@ -58,40 +58,12 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    @media (hover: hover) {
-      body { cursor: none; }
-      a, button, [data-magnetic] { cursor: none; }
-    }
+    
 
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
 
-    /* ======================================================
-       CUSTOM CURSOR
-    ====================================================== */
-    #cursor {
-      position: fixed;
-      top: 0; left: 0;
-      width: 20px; height: 20px;
-      border: 1.5px solid var(--accent);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: border-color 0.2s, opacity 0.2s;
-      will-change: transform;
-      display: none;
-    }
-
-    @media (hover: hover) {
-      #cursor { display: block; }
-    }
-
-    #cursor.expanded {
-      width: 40px; height: 40px;
-      border-color: var(--accent);
-      background: var(--accent-dim);
-    }
+    
 
     /* ======================================================
        NAV
@@ -234,7 +206,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 6rem 2rem 4rem;
+      padding: 6rem 2rem 2rem;
       overflow: hidden;
     }
 
@@ -373,33 +345,7 @@
       transform: translateX(4px);
     }
 
-    .scroll-indicator {
-      position: absolute;
-      bottom: 2.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      opacity: 0;
-      animation: fadeUp 0.7s ease 2s forwards;
-      z-index: 1;
-    }
-
-    .scroll-indicator span {
-      font-size: 0.6875rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .scroll-line {
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(to bottom, var(--accent), transparent);
-      animation: scrollPulse 2s ease-in-out infinite;
-    }
+    
 
     @keyframes fadeUp {
       to { opacity: 1; transform: translateY(0); }
@@ -409,10 +355,7 @@
       to { opacity: 1; transform: scaleX(1); }
     }
 
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.4; transform: scaleY(1); }
-      50% { opacity: 1; transform: scaleY(1.1); }
-    }
+    
 
     /* ======================================================
        MARQUEE / TICKER
@@ -518,11 +461,11 @@
     }
 
     .expertise-card {
-      flex: 0 0 clamp(280px, 28vw, 360px);
+      flex: 0 0 clamp(240px, 22vw, 300px);
       background: var(--bg-elevated);
       border: 1px solid rgba(240, 237, 232, 0.06);
       border-radius: 4px;
-      padding: 2.5rem;
+      padding: 1.75rem;
       transition: border-color 0.35s ease, transform 0.35s ease;
     }
 
@@ -532,32 +475,32 @@
     }
 
     .card-icon {
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       border: 1.5px solid var(--accent);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.25rem;
       color: var(--accent);
-      font-size: 1.125rem;
+      font-size: 1rem;
     }
 
     .expertise-card h3 {
       font-family: var(--font-serif);
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: 400;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
       line-height: 1.2;
     }
 
     .expertise-card p {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
       font-weight: 300;
       line-height: 1.75;
-      margin-bottom: 2rem;
+      margin-bottom: 1.25rem;
     }
 
     .tags {
@@ -668,68 +611,9 @@
     ====================================================== */
     #apropos {
       padding: 8rem 5vw;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-      max-width: 1200px;
+      max-width: 800px;
       margin: 0 auto;
     }
-
-    .apropos-photo-wrap {
-      position: relative;
-    }
-
-    .apropos-photo {
-      aspect-ratio: 4/5;
-      background: var(--bg-elevated);
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-      transition: clip-path 1s cubic-bezier(0.77, 0, 0.175, 1);
-    }
-
-    .apropos-photo.revealed {
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-
-    .apropos-photo-inner {
-      width: 100%;
-      height: 100%;
-      background: var(--bg-elevated);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-size: 0.8125rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
-      transition: clip-path 1.1s cubic-bezier(0.77, 0, 0.175, 1) 0.1s;
-    }
-
-    .apropos-photo-inner.revealed {
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-
-    /* Orange frame offset */
-    .apropos-photo-wrap::before {
-      content: '';
-      position: absolute;
-      top: 1.25rem;
-      left: 1.25rem;
-      right: -1.25rem;
-      bottom: -1.25rem;
-      border: 1.5px solid var(--accent);
-      border-radius: 2px;
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.6s ease 0.8s;
-    }
-
-    .apropos-photo-wrap.revealed::before {
-      opacity: 1;
-    }
-
-    .apropos-content {}
 
     .apropos-content .section-tag { margin-bottom: 1rem; }
 
@@ -769,8 +653,6 @@
 
     @media (max-width: 768px) {
       #apropos {
-        grid-template-columns: 1fr;
-        gap: 3rem;
         padding: 5rem 1.5rem;
       }
     }
@@ -1079,11 +961,6 @@
 <body>
 
   <!-- ====================================================
-       CUSTOM CURSOR
-  ==================================================== -->
-  <div id="cursor" aria-hidden="true"></div>
-
-  <!-- ====================================================
        MOBILE MENU
   ==================================================== -->
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu navigation" aria-hidden="true">
@@ -1131,10 +1008,6 @@
       <a href="#contact" class="hero-cta">Prenons contact</a>
     </div>
 
-    <div class="scroll-indicator" aria-hidden="true">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
   </section>
 
   <!-- ====================================================
@@ -1252,31 +1125,19 @@
        À PROPOS
   ==================================================== -->
   <section id="apropos" aria-labelledby="aproposTitle">
-    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;padding:8rem 5vw;">
+    <div class="apropos-content">
+      <span class="section-tag">03 — À propos</span>
+      <h2 id="aproposTitle">Une expertise forgée sur le terrain</h2>
 
-      <div class="apropos-photo-wrap" id="photoWrap">
-        <div class="apropos-photo">
-          <div class="apropos-photo-inner" id="photoInner">
-            <span>Eva Buron</span>
-          </div>
-        </div>
-      </div>
+      <p class="bio-line">Experte en management de transition et conseil auprès des bailleurs sociaux, Eva Buron accompagne les organismes HLM dans leurs défis opérationnels, réglementaires et humains depuis plus de dix ans.</p>
 
-      <div class="apropos-content">
-        <span class="section-tag">03 — À propos</span>
-        <h2 id="aproposTitle">Une expertise forgée sur le terrain</h2>
+      <p class="bio-line">Après des débuts en gestion locative qui lui ont permis de maîtriser chaque dimension du métier — attribution, contentieux, recouvrement, relations locataires —, elle s'est imposée comme manager de transition, intervenant là où les organisations ont besoin d'un appui immédiat et efficace.</p>
 
-        <p class="bio-line">Experte en management de transition et conseil auprès des bailleurs sociaux, Eva Buron accompagne les organismes HLM dans leurs défis opérationnels, réglementaires et humains depuis plus de dix ans.</p>
+      <p class="bio-line">Son approche mêle rigueur opérationnelle et intelligence humaine. Elle comprend les contraintes du secteur social, ses codes, ses obligations réglementaires (ANCOLS, SLS, OPS, RPLS) et ses enjeux de transformation digitale.</p>
 
-        <p class="bio-line">Après des débuts en gestion locative qui lui ont permis de maîtriser chaque dimension du métier — attribution, contentieux, recouvrement, relations locataires —, elle s'est imposée comme manager de transition, intervenant là où les organisations ont besoin d'un appui immédiat et efficace.</p>
+      <p class="bio-line">Fondatrice d'IMPULSE, elle propose ses services en mission courte ou longue durée, en intervenante externe ou en remplacement, pour permettre aux organisations de maintenir le cap dans les moments critiques.</p>
 
-        <p class="bio-line">Son approche mêle rigueur opérationnelle et intelligence humaine. Elle comprend les contraintes du secteur social, ses codes, ses obligations réglementaires (ANCOLS, SLS, OPS, RPLS) et ses enjeux de transformation digitale.</p>
-
-        <p class="bio-line">Fondatrice d'IMPULSE, elle propose ses services en mission courte ou longue durée, en intervenante externe ou en remplacement, pour permettre aux organisations de maintenir le cap dans les moments critiques.</p>
-
-        <p class="bio-signature" id="bioSignature">— Eva Buron</p>
-      </div>
-
+      <p class="bio-signature" id="bioSignature">— Eva Buron</p>
     </div>
   </section>
 
@@ -1390,43 +1251,7 @@
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const canHover = window.matchMedia('(hover: hover)').matches;
 
-    /* ==================================================
-       CUSTOM CURSOR
-    ================================================== */
-    if (canHover && !prefersReduced) {
-      const cursor = document.getElementById('cursor');
-      let mouseX = 0, mouseY = 0;
-      let cursorX = 0, cursorY = 0;
-      const LERP = 0.15;
-
-      document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-      });
-
-      const interactiveSelector = 'a, button, [data-magnetic], input, textarea, label';
-
-      document.addEventListener('mouseover', (e) => {
-        if (e.target.closest(interactiveSelector)) {
-          cursor.classList.add('expanded');
-        }
-      });
-
-      document.addEventListener('mouseout', (e) => {
-        if (e.target.closest(interactiveSelector)) {
-          cursor.classList.remove('expanded');
-        }
-      });
-
-      function animateCursor() {
-        cursorX += (mouseX - cursorX) * LERP;
-        cursorY += (mouseY - cursorY) * LERP;
-        cursor.style.transform = `translate(${cursorX - 10}px, ${cursorY - 10}px)`;
-        requestAnimationFrame(animateCursor);
-      }
-
-      animateCursor();
-    }
+    
 
     /* ==================================================
        NAV — SCROLL GLASSMORPHISM
@@ -1595,23 +1420,7 @@
       requestAnimationFrame(update);
     }
 
-    /* ==================================================
-       À PROPOS — PHOTO REVEAL
-    ================================================== */
-    const photoWrap = document.getElementById('photoWrap');
-    const photoInner = document.getElementById('photoInner');
-
-    const photoObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          photoWrap.classList.add('revealed');
-          photoInner.classList.add('revealed');
-          photoObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-
-    if (photoWrap) photoObserver.observe(photoWrap);
+    
 
     /* ==================================================
        MAGNETIC BUTTON
