@@ -985,25 +985,27 @@
       bottom: 2rem;
       right: 2rem;
       z-index: 900;
-      background: var(--bg-elevated);
-      border: 1px solid rgba(240, 237, 232, 0.15);
-      color: var(--text-muted);
+      background: var(--accent);
+      border: none;
+      color: #fff;
       font-family: var(--font-sans);
       font-size: 0.75rem;
-      font-weight: 400;
-      letter-spacing: 0.04em;
-      padding: 0.65rem 1.1rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      padding: 0.8rem 1.4rem;
       border-radius: 2px;
       cursor: pointer;
       transition: all 0.3s ease;
       max-width: 180px;
       text-align: center;
-      line-height: 1.4;
+      line-height: 1.5;
       white-space: normal;
+      box-shadow: 0 4px 20px rgba(217, 91, 48, 0.35);
     }
     #theme-toggle:hover {
-      border-color: var(--accent);
-      color: var(--text);
+      background: #c04a22;
+      color: #fff;
+      box-shadow: 0 6px 24px rgba(217, 91, 48, 0.5);
     }
 
     /* ======================================================
@@ -1104,7 +1106,7 @@
         <cite style="font-size:0.8125rem;color:var(--text-muted);font-style:normal;">— Traité politique, Spinoza</cite>
       </div>
       <div style="display:flex;flex-direction:column;gap:0.5rem;padding-left:4rem;border-left:1px solid rgba(240,237,232,0.1);">
-        <p style="font-size:0.6875rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);">Phase 2 — Actions</p>
+        <p style="font-size:0.6875rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);">Phase 2 — Actions</p>
         <blockquote style="font-family:var(--font-serif);font-style:italic;font-size:clamp(1.25rem,2.5vw,1.75rem);line-height:1.55;color:var(--text);">« Savoir ne suffit pas, il faut appliquer ; vouloir ne suffit pas, il faut agir. »</blockquote>
         <cite style="font-size:0.8125rem;color:var(--text-muted);font-style:normal;">— Goethe</cite>
       </div>
@@ -1263,8 +1265,9 @@
        À PROPOS
   ==================================================== -->
   <section id="apropos" aria-labelledby="aproposTitle" style="padding:8rem 5vw;">
-    <div style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:start;">
-      <div class="apropos-content" style="max-width:100%;">
+    <div style="max-width:720px;margin:0 auto;">
+      <div class="apropos-content">
+        <img src="/eva.jpg" alt="Eva Buron, fondatrice d'IMPULSE" style="width:160px;height:196px;object-fit:cover;object-position:center top;border:1px solid rgba(217,91,48,0.3);display:block;float:right;margin:0 0 1.5rem 2.5rem;" />
         <span class="section-tag">04 — À propos</span>
         <h2 id="aproposTitle">Eva Buron, fondatrice d'IMPULSE</h2>
 
@@ -1275,9 +1278,6 @@
         <p class="bio-line">Ma démarche ? Cohésion de groupe, implication de chacun, et objectifs clairs et réalisables.</p>
 
         <p class="bio-signature" id="bioSignature">— Eva Buron</p>
-      </div>
-      <div style="flex-shrink:0;">
-        <img src="/eva.jpg" alt="Eva Buron, fondatrice d'IMPULSE" style="width:220px;height:270px;object-fit:cover;object-position:center top;border:1px solid rgba(217,91,48,0.3);display:block;" />
       </div>
     </div>
   </section>
