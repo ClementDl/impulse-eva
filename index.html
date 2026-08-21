@@ -943,6 +943,70 @@
     }
 
     /* ======================================================
+       TIMELINE — ANIMATION TL-VISIBLE
+    ====================================================== */
+    @keyframes timelineSlideIn {
+      from { opacity: 0; transform: translateX(-28px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    .timeline-item.tl-visible {
+      animation: timelineSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    .timeline-item.tl-visible .timeline-dot {
+      box-shadow: 0 0 0 6px rgba(217, 91, 48, 0.15);
+    }
+
+    /* ======================================================
+       DARK / LIGHT MODE
+    ====================================================== */
+    /* Light mode variables */
+    body.light-mode {
+      --bg: #F5F3EF;
+      --bg-elevated: #EEEBE5;
+      --bg-subtle: #E8E4DC;
+      --text: #1A1714;
+      --text-muted: #6B6560;
+      --ticker-color: #D5D0C8;
+      --accent: #D95B30;
+      --accent-dim: rgba(217, 91, 48, 0.10);
+      --accent-glow: rgba(217, 91, 48, 0.15);
+    }
+    body.light-mode nav.scrolled {
+      background: rgba(245, 243, 239, 0.82);
+    }
+    body.light-mode .mobile-menu {
+      background: rgba(245, 243, 239, 0.97);
+    }
+    body { transition: background-color 0.4s ease, color 0.4s ease; }
+
+    /* Bouton toggle */
+    #theme-toggle {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 900;
+      background: var(--bg-elevated);
+      border: 1px solid rgba(240, 237, 232, 0.15);
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      padding: 0.65rem 1.1rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      max-width: 180px;
+      text-align: center;
+      line-height: 1.4;
+      white-space: normal;
+    }
+    #theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    /* ======================================================
        REDUCED MOTION
     ====================================================== */
     @media (prefers-reduced-motion: reduce) {
@@ -969,6 +1033,7 @@
     <a href="#missions" class="mobile-link">Les missions</a>
     <a href="#apropos" class="mobile-link">À propos</a>
     <a href="#parcours" class="mobile-link">Parcours</a>
+    <a href="#avis" class="mobile-link">Avis</a>
     <a href="#contact" class="mobile-link">Contact</a>
   </div>
 
@@ -984,6 +1049,7 @@
       <li><a href="#missions">Les missions</a></li>
       <li><a href="#apropos">À propos</a></li>
       <li><a href="#parcours">Parcours</a></li>
+      <li><a href="#avis">Avis</a></li>
       <li class="nav-cta"><a href="#contact">Échanger avec moi</a></li>
     </ul>
 
@@ -1287,11 +1353,43 @@
   </section>
 
   <!-- ====================================================
+       AVIS
+  ==================================================== -->
+  <section id="avis" aria-labelledby="avisTitle" style="padding:6rem 5vw;">
+    <div style="max-width:900px;margin:0 auto;">
+      <div class="reveal-section" style="margin-bottom:3rem;">
+        <span class="section-tag">06 — Avis</span>
+        <h2 id="avisTitle" style="font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:400;margin-top:0.5rem;">Ce qu'on dit d'IMPULSE</h2>
+      </div>
+
+      <!-- Slots avis vides (Eva peut compléter) -->
+      <div id="avis-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-bottom:3rem;">
+        <!-- avis injectés dynamiquement ou à remplir -->
+        <div class="avis-card" style="background:var(--bg-elevated);border:1px solid rgba(240,237,232,0.06);border-radius:2px;padding:2rem;display:flex;flex-direction:column;gap:1rem;">
+          <p style="font-family:var(--font-serif);font-style:italic;font-size:1rem;line-height:1.7;color:var(--text);flex:1;">"Un accompagnement professionnel et humain. Eva a su comprendre nos enjeux rapidement et agir avec efficacité."</p>
+          <div>
+            <p style="font-weight:600;font-size:0.875rem;color:var(--text);">Responsable RH</p>
+            <p style="font-size:0.75rem;color:var(--text-muted);">Bailleur social, Île-de-France</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bouton déposer un avis -->
+      <div style="text-align:center;">
+        <p style="font-size:0.9375rem;color:var(--text-muted);font-weight:300;margin-bottom:1.5rem;">Vous avez travaillé avec IMPULSE ? Partagez votre expérience.</p>
+        <a href="mailto:eva.buron@impulse-conseil.com?subject=Avis%20IMPULSE&body=Bonjour%20Eva%2C%0A%0AJe%20souhaite%20d%C3%A9poser%20un%20avis%20sur%20notre%20collaboration%20%3A%0A%0A" style="display:inline-flex;align-items:center;gap:0.6rem;border:1px solid rgba(240,237,232,0.25);padding:0.75rem 1.75rem;font-size:0.875rem;font-weight:500;color:var(--text);transition:border-color 0.2s,color 0.2s;border-radius:2px;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)';" onmouseout="this.style.borderColor='rgba(240,237,232,0.25)';this.style.color='var(--text)';">
+          Déposer un avis →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
        CONTACT
   ==================================================== -->
   <section id="contact" aria-labelledby="contactTitle">
     <div class="contact-inner reveal-section">
-      <span class="section-tag">06 — Contact</span>
+      <span class="section-tag">07 — Contact</span>
       <h2 id="contactTitle">Discutons. <em>L'écoute, c'est ma première mission.</em></h2>
       <p>Que ce soit pour désamorcer un conflit, accompagner une transition sans perdre vos talents, ou professionnaliser votre organisation — la première étape, c'est un échange. Sans engagement.</p>
 
@@ -1323,6 +1421,10 @@
     <p class="footer-copy">© 2026 IMPULSE — SASU · Tous droits réservés.</p>
     <p class="footer-legal">Management de transition opérationnel &amp; conseil en logement social</p>
   </footer>
+
+  <button id="theme-toggle" aria-label="Changer de thème">
+    Le thème vous dérange ?<br>Je m'adapte.
+  </button>
 
   <!-- ====================================================
        JAVASCRIPT
@@ -1543,6 +1645,34 @@
 
         animateMagnetic();
       }
+    }
+
+    /* ==================================================
+       TIMELINE — TL-VISIBLE OBSERVER
+    ================================================== */
+    const tlObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const delay = entry.target.dataset.delay || 0;
+          setTimeout(() => entry.target.classList.add('tl-visible'), parseInt(delay));
+          tlObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.timeline-item').forEach(el => tlObserver.observe(el));
+
+    /* ==================================================
+       DARK / LIGHT TOGGLE
+    ================================================== */
+    const themeBtn = document.getElementById('theme-toggle');
+    const stored = localStorage.getItem('impulse-theme');
+    if (stored === 'light') document.body.classList.add('light-mode');
+
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        const isLight = document.body.classList.toggle('light-mode');
+        localStorage.setItem('impulse-theme', isLight ? 'light' : 'dark');
+      });
     }
 
     /* ==================================================
