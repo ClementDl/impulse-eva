@@ -981,31 +981,24 @@
 
     /* Bouton toggle */
     #theme-toggle {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      z-index: 900;
-      background: var(--accent);
-      border: none;
-      color: #fff;
+      background: none;
+      border: 1px solid rgba(240, 237, 232, 0.2);
+      color: var(--text-muted);
       font-family: var(--font-sans);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      padding: 0.8rem 1.4rem;
+      font-size: 0.6875rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      padding: 0.3rem 0.75rem;
       border-radius: 2px;
       cursor: pointer;
       transition: all 0.3s ease;
-      max-width: 180px;
-      text-align: center;
-      line-height: 1.5;
-      white-space: normal;
-      box-shadow: 0 4px 20px rgba(217, 91, 48, 0.35);
+      white-space: nowrap;
+      display: block;
+      margin-top: 0.35rem;
     }
     #theme-toggle:hover {
-      background: #c04a22;
-      color: #fff;
-      box-shadow: 0 6px 24px rgba(217, 91, 48, 0.5);
+      border-color: var(--accent);
+      color: var(--accent);
     }
 
     /* ======================================================
@@ -1032,26 +1025,29 @@
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu navigation" aria-hidden="true">
     <a href="#expertise" class="mobile-link">Vos besoins</a>
     <a href="#chiffres" class="mobile-link">Mon approche</a>
+    <a href="#avis" class="mobile-link">Avis</a>
     <a href="#missions" class="mobile-link">Les missions</a>
     <a href="#apropos" class="mobile-link">À propos</a>
     <a href="#parcours" class="mobile-link">Parcours</a>
-    <a href="#avis" class="mobile-link">Avis</a>
-    <a href="#contact" class="mobile-link">Contact</a>
+    <a href="#contact" class="mobile-link">Échanger avec moi</a>
   </div>
 
   <!-- ====================================================
        NAV
   ==================================================== -->
   <nav id="nav" role="navigation" aria-label="Navigation principale">
-    <a href="#" class="nav-logo" aria-label="IMPULSE — retour en haut">IMPULSE</a>
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:0.2rem;">
+      <a href="#" class="nav-logo" aria-label="IMPULSE - retour en haut">IMPULSE</a>
+      <button id="theme-toggle" aria-label="Changer de thème">Fond blanc ou noir ? Je m'adapte</button>
+    </div>
 
     <ul class="nav-links" role="list">
       <li><a href="#expertise">Vos besoins</a></li>
       <li><a href="#chiffres">Mon approche</a></li>
+      <li><a href="#avis">Avis</a></li>
       <li><a href="#missions">Les missions</a></li>
       <li><a href="#apropos">À propos</a></li>
       <li><a href="#parcours">Parcours</a></li>
-      <li><a href="#avis">Avis</a></li>
       <li class="nav-cta"><a href="#contact">Échanger avec moi</a></li>
     </ul>
 
@@ -1082,22 +1078,13 @@
 
   </section>
 
-  <!-- ====================================================
-       MARQUEE
-  ==================================================== -->
-  <div class="marquee-section" aria-hidden="true">
-    <div class="marquee-track" id="marqueeTrack">
-      <span class="marquee-text">MANAGEMENT · TRANSITION · CONFORMITÉ · PILOTAGE · GESTION LOCATIVE · TRANSFORMATION · COHÉSION · ÉCOUTE · MÉDIATION · </span>
-      <span class="marquee-text">MANAGEMENT · TRANSITION · CONFORMITÉ · PILOTAGE · GESTION LOCATIVE · TRANSFORMATION · COHÉSION · ÉCOUTE · MÉDIATION · </span>
-      <span class="marquee-text">MANAGEMENT · TRANSITION · CONFORMITÉ · PILOTAGE · GESTION LOCATIVE · TRANSFORMATION · COHÉSION · ÉCOUTE · MÉDIATION · </span>
-    </div>
-  </div>
+
 
   <!-- ====================================================
        C'EST QUOI
   ==================================================== -->
   <section style="padding:6rem 5vw;max-width:900px;margin:0 auto;" class="reveal-section">
-    <h2 style="font-family:var(--font-serif);font-size:clamp(1.875rem,3vw,2.75rem);font-weight:400;line-height:1.2;margin-bottom:1.5rem;">Le management de transition opérationnel, c'est quoi ?</h2>
+    <h2 style="font-family:var(--font-serif);font-size:clamp(2.5rem,5vw,4rem);font-weight:400;line-height:1.2;margin-bottom:1.5rem;">Le management de transition opérationnel, c'est quoi ?</h2>
     <p style="font-size:0.9375rem;font-weight:300;color:var(--text);line-height:1.8;margin-bottom:2.5rem;">C'est un manager expérimenté qui « met les mains dans le cambouis » pendant quelques mois, avec des objectifs concrets de performance, d'organisation ou de transformation. J'interviens au cœur des opérations pour prendre en main des postes clés, résoudre des problèmes concrets et obtenir des résultats rapides.</p>
     <div style="display:flex;flex-direction:column;gap:3rem;margin-top:0.5rem;">
       <div style="display:flex;flex-direction:column;gap:0.5rem;">
@@ -1197,34 +1184,52 @@
     <div class="section-header reveal-section">
       <span class="section-tag">02 — Mon approche</span>
       <h2 id="chiffresTitle" style="font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:400;margin-top:0.5rem;">L'alliance de l'expertise et de l'humain</h2>
-      <p style="color:var(--text-muted);font-size:0.9375rem;font-weight:300;line-height:1.7;max-width:580px;margin-top:1rem;">Parce que les processus, aussi parfaits soient-ils, échouent sans l'adhésion des équipes.</p>
+      <p style="color:var(--text-muted);font-size:0.9375rem;font-weight:300;line-height:1.7;max-width:580px;margin-top:1rem;text-align:center;margin:1rem auto 0;">Parce que les processus, aussi parfaits soient-ils, échouent sans l'adhésion des équipes.</p>
     </div>
 
-    <div class="stats-grid">
-      <div class="stat-item" data-target="80" data-suffix="%">
-        <div class="stat-number">
-          <span class="stat-count">0</span><span class="stat-suffix">%</span>
-        </div>
-        <p class="stat-label">Des blocages viennent de tensions non résolues — je vous aide à retrouver confiance et efficacité</p>
+    <div style="max-width:900px;margin:3rem auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;text-align:left;">
+      <div style="padding:1.5rem;border-top:2px solid var(--accent);">
+        <h3 style="font-family:var(--font-serif);font-size:1.25rem;font-weight:400;margin-bottom:0.75rem;">Des équipes apaisées</h3>
+        <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.75;font-weight:300;">Confiance retrouvée, turnover maîtrisé, cohésion renforcée. Vos équipes retrouvent envie et efficacité.</p>
       </div>
-      <div class="stat-item" data-target="10" data-suffix="+">
-        <div class="stat-number">
-          <span class="stat-count">0</span><span class="stat-suffix">+</span>
-        </div>
-        <p class="stat-label">Ans en ESH/OPH — des solutions techniquement solides et humainement acceptées</p>
+      <div style="padding:1.5rem;border-top:2px solid var(--accent);">
+        <h3 style="font-family:var(--font-serif);font-size:1.25rem;font-weight:400;margin-bottom:0.75rem;">Des processus efficaces</h3>
+        <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.75;font-weight:300;">Procédures clarifiées, gains de temps, réduction des erreurs. Chacun sait ce qu'il doit faire et pourquoi.</p>
       </div>
-      <div class="stat-item" data-target="50" data-suffix="+">
-        <div class="stat-number">
-          <span class="stat-count">0</span><span class="stat-suffix">+</span>
-        </div>
-        <p class="stat-label">Collaborateurs formés aux nouvelles procédures avec une approche pédagogique et bienveillante</p>
+      <div style="padding:1.5rem;border-top:2px solid var(--accent);">
+        <h3 style="font-family:var(--font-serif);font-size:1.25rem;font-weight:400;margin-bottom:0.75rem;">Une transformation durable</h3>
+        <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.75;font-weight:300;">Changements acceptés et intégrés, équipes autonomes, résultats qui tiennent dans le temps.</p>
       </div>
-      <div class="stat-item" data-target="10" data-suffix="+">
-        <div class="stat-number">
-          <span class="stat-count">0</span><span class="stat-suffix">+</span>
-        </div>
-        <p class="stat-label">Structures accompagnées dans leur transformation humaine et technique depuis la création d'IMPULSE</p>
+      <div style="padding:1.5rem;border-top:2px solid var(--accent);">
+        <h3 style="font-family:var(--font-serif);font-size:1.25rem;font-weight:400;margin-bottom:0.75rem;">Sécurisation des pratiques</h3>
+        <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.75;font-weight:300;">Conformité ANCOLS, veille réglementaire, procédures documentées. Votre organisation est protégée.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       AVIS
+  ==================================================== -->
+  <section id="avis" aria-labelledby="avisTitle" style="padding:6rem 5vw;">
+    <div style="max-width:900px;margin:0 auto;">
+      <div class="reveal-section" style="margin-bottom:3rem;">
+        <span class="section-tag">03 — Avis</span>
+        <h2 id="avisTitle" style="font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:400;margin-top:0.5rem;">Ce qu'on dit d'IMPULSE</h2>
+      </div>
+
+      <!-- Slots avis vides (Eva peut compléter) -->
+      <div id="avis-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-bottom:3rem;">
+        <!-- avis injectés dynamiquement ou à remplir -->
+        <div class="avis-card" style="background:var(--bg-elevated);border:1px solid rgba(240,237,232,0.06);border-radius:2px;padding:2rem;display:flex;flex-direction:column;gap:1rem;">
+          <p style="font-family:var(--font-serif);font-style:italic;font-size:1rem;line-height:1.7;color:var(--text);flex:1;">"Un accompagnement professionnel et humain. Eva a su comprendre nos enjeux rapidement et agir avec efficacité."</p>
+          <div>
+            <p style="font-weight:600;font-size:0.875rem;color:var(--text);">Responsable RH</p>
+            <p style="font-size:0.75rem;color:var(--text-muted);">Bailleur social, Île-de-France</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- bouton fixe déposé ailleurs dans le DOM -->
     </div>
   </section>
 
@@ -1239,24 +1244,24 @@
     </div>
     <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;">
       <div style="background:var(--bg-elevated);border:1px solid rgba(240,237,232,0.06);border-radius:2px;padding:2rem;">
-        <p style="font-size:0.75rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;">1 mois</p>
         <h3 style="font-family:var(--font-serif);font-size:1.25rem;font-weight:400;margin-bottom:0.75rem;line-height:1.3;">Remplacement du responsable de la commande publique</h3>
         <p style="color:var(--text-muted);font-size:0.875rem;line-height:1.7;">Prise en charge du poste pendant les congés estivaux — continuité de service assurée.</p>
+        <p style="font-size:0.75rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-top:1rem;margin-bottom:0;">Mission de 1 mois</p>
       </div>
       <div style="background:var(--bg-elevated);border:1px solid rgba(240,237,232,0.06);border-radius:2px;padding:2rem;">
-        <p style="font-size:0.75rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;">6 mois</p>
         <h3 style="font-family:var(--font-serif);font-size:1.25rem;font-weight:400;margin-bottom:0.75rem;line-height:1.3;">Remplacement du responsable recouvrement amiable et contentieux</h3>
         <p style="color:var(--text-muted);font-size:0.875rem;line-height:1.7;">Pilotage complet du recouvrement, gestion des procédures contentieuses et des relations locataires.</p>
+        <p style="font-size:0.75rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-top:1rem;margin-bottom:0;">Mission de 6 mois</p>
       </div>
       <div style="background:var(--bg-elevated);border:1px solid rgba(240,237,232,0.06);border-radius:2px;padding:2rem;">
-        <p style="font-size:0.75rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;">3 mois</p>
         <h3 style="font-family:var(--font-serif);font-size:1.25rem;font-weight:400;margin-bottom:0.75rem;line-height:1.3;">Accompagnement quittancement &amp; charges locatives</h3>
         <p style="color:var(--text-muted);font-size:0.875rem;line-height:1.7;">Accompagnement du responsable à la réalisation de 2 exercices de charges locatives.</p>
+        <p style="font-size:0.75rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-top:1rem;margin-bottom:0;">Mission de 3 mois</p>
       </div>
       <div style="background:var(--bg-elevated);border:1px solid rgba(240,237,232,0.06);border-radius:2px;padding:2rem;">
-        <p style="font-size:0.75rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;">3 mois</p>
         <h3 style="font-family:var(--font-serif);font-size:1.25rem;font-weight:400;margin-bottom:0.75rem;line-height:1.3;">Harmonisation poste Chargé(e) de clientèle post-fusion</h3>
         <p style="color:var(--text-muted);font-size:0.875rem;line-height:1.7;">Accompagnement à l'harmonisation des pratiques et fiches de poste après une fusion d'organismes.</p>
+        <p style="font-size:0.75rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-top:1rem;margin-bottom:0;">Mission de 3 mois</p>
       </div>
     </div>
   </section>
@@ -1267,7 +1272,7 @@
   <section id="apropos" aria-labelledby="aproposTitle" style="padding:8rem 5vw;">
     <div style="max-width:720px;margin:0 auto;">
       <div class="apropos-content">
-        <img src="/eva.jpg" alt="Eva Buron, fondatrice d'IMPULSE" style="width:160px;height:196px;object-fit:cover;object-position:center top;border:1px solid rgba(217,91,48,0.3);display:block;float:right;margin:0 0 1.5rem 2.5rem;" />
+        <img src="/eva.jpg" alt="Eva Buron, fondatrice d'IMPULSE" style="width:160px;height:160px;object-fit:cover;object-position:center 15%;border:1px solid rgba(217,91,48,0.3);display:block;float:right;margin:0 0 1.5rem 2.5rem;mix-blend-mode:multiply;" />
         <span class="section-tag">04 — À propos</span>
         <h2 id="aproposTitle">Eva Buron, fondatrice d'IMPULSE</h2>
 
@@ -1353,44 +1358,12 @@
   </section>
 
   <!-- ====================================================
-       AVIS
-  ==================================================== -->
-  <section id="avis" aria-labelledby="avisTitle" style="padding:6rem 5vw;">
-    <div style="max-width:900px;margin:0 auto;">
-      <div class="reveal-section" style="margin-bottom:3rem;">
-        <span class="section-tag">06 — Avis</span>
-        <h2 id="avisTitle" style="font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:400;margin-top:0.5rem;">Ce qu'on dit d'IMPULSE</h2>
-      </div>
-
-      <!-- Slots avis vides (Eva peut compléter) -->
-      <div id="avis-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-bottom:3rem;">
-        <!-- avis injectés dynamiquement ou à remplir -->
-        <div class="avis-card" style="background:var(--bg-elevated);border:1px solid rgba(240,237,232,0.06);border-radius:2px;padding:2rem;display:flex;flex-direction:column;gap:1rem;">
-          <p style="font-family:var(--font-serif);font-style:italic;font-size:1rem;line-height:1.7;color:var(--text);flex:1;">"Un accompagnement professionnel et humain. Eva a su comprendre nos enjeux rapidement et agir avec efficacité."</p>
-          <div>
-            <p style="font-weight:600;font-size:0.875rem;color:var(--text);">Responsable RH</p>
-            <p style="font-size:0.75rem;color:var(--text-muted);">Bailleur social, Île-de-France</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bouton déposer un avis -->
-      <div style="text-align:center;">
-        <p style="font-size:0.9375rem;color:var(--text-muted);font-weight:300;margin-bottom:1.5rem;">Vous avez travaillé avec IMPULSE ? Partagez votre expérience.</p>
-        <a href="mailto:eva.buron@impulse-conseil.com?subject=Avis%20IMPULSE&body=Bonjour%20Eva%2C%0A%0AJe%20souhaite%20d%C3%A9poser%20un%20avis%20sur%20notre%20collaboration%20%3A%0A%0A" style="display:inline-flex;align-items:center;gap:0.6rem;border:1px solid rgba(240,237,232,0.25);padding:0.75rem 1.75rem;font-size:0.875rem;font-weight:500;color:var(--text);transition:border-color 0.2s,color 0.2s;border-radius:2px;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)';" onmouseout="this.style.borderColor='rgba(240,237,232,0.25)';this.style.color='var(--text)';">
-          Déposer un avis →
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====================================================
        CONTACT
   ==================================================== -->
   <section id="contact" aria-labelledby="contactTitle">
     <div class="contact-inner reveal-section">
       <span class="section-tag">07 — Contact</span>
-      <h2 id="contactTitle">Discutons. <em>L'écoute, c'est ma première mission.</em></h2>
+      <h2 id="contactTitle"><em>L'écoute, c'est ma première mission.</em></h2>
       <p>Que ce soit pour désamorcer un conflit, accompagner une transition sans perdre vos talents, ou professionnaliser votre organisation — la première étape, c'est un échange. Sans engagement.</p>
 
       <div class="contact-details">
@@ -1422,9 +1395,11 @@
     <p class="footer-legal">Management de transition opérationnel &amp; conseil en logement social</p>
   </footer>
 
-  <button id="theme-toggle" aria-label="Changer de thème">
-    Le thème vous dérange ?<br>Je m'adapte.
-  </button>
+
+
+  <a href="mailto:eva.buron@impulse-conseil.com?subject=Avis%20IMPULSE&body=Bonjour%20Eva%2C%0A%0AJe%20souhaite%20d%C3%A9poser%20un%20avis%20sur%20notre%20collaboration%20%3A%0A%0A" id="avis-btn-fixed" style="position:fixed;bottom:2rem;right:2rem;z-index:900;background:var(--accent);color:#fff;font-family:var(--font-sans);font-size:0.75rem;font-weight:500;letter-spacing:0.05em;padding:0.8rem 1.4rem;border-radius:2px;cursor:pointer;text-align:center;line-height:1.5;white-space:nowrap;box-shadow:0 4px 20px rgba(217,91,48,0.35);transition:background 0.3s ease,box-shadow 0.3s ease;display:block;" onmouseover="this.style.background='#c04a22';this.style.boxShadow='0 6px 24px rgba(217,91,48,0.5)';" onmouseout="this.style.background='var(--accent)';this.style.boxShadow='0 4px 20px rgba(217,91,48,0.35)';" aria-label="Déposer un avis">
+    Déposer un avis →
+  </a>
 
   <!-- ====================================================
        JAVASCRIPT
