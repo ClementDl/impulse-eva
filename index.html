@@ -397,43 +397,8 @@
     }
 
     /* ======================================================
-       EXPERTISE — STICKY HORIZONTAL
+       EXPERTISE — VOS BESOINS
     ====================================================== */
-    #expertise {
-      position: relative;
-    }
-
-    .expertise-sticky-container {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-    }
-
-    .expertise-inner {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 100%;
-      padding: 6rem 5vw;
-      gap: 3rem;
-    }
-
-    /* Rangee label + cartes ; le quick-win se place dessous */
-    .expertise-row {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      gap: 6vw;
-    }
-
-    .expertise-label {
-      flex: 0 0 auto;
-      max-width: 280px;
-    }
-
     .section-tag {
       font-size: 1rem;
       font-weight: 500;
@@ -444,27 +409,9 @@
       display: block;
     }
 
-    .expertise-label h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 400;
-      line-height: 1.15;
-      margin-bottom: 1rem;
-    }
-
-    .expertise-label p {
-      font-size: 0.9375rem;
-      color: var(--text-muted);
-      font-weight: 300;
-      line-height: 1.7;
-    }
-
-    .expertise-cards-wrapper {
-      flex: 1;
-      overflow: visible;
-    }
-
     .expertise-cards {
+      max-width: 1100px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.5rem;
@@ -527,35 +474,6 @@
       border: 1px solid rgba(217, 91, 48, 0.3);
       padding: 0.3rem 0.7rem;
       border-radius: 2px;
-    }
-
-    /* Scroll spacer for sticky */
-    .expertise-scroll-spacer {
-      height: 200vh;
-    }
-
-    /* Mobile fallback */
-    @media (max-width: 900px) {
-      .expertise-sticky-container {
-        position: static;
-        height: auto;
-        overflow: visible;
-      }
-      .expertise-inner {
-        padding: 4rem 1.5rem;
-        gap: 3rem;
-      }
-      .expertise-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 3rem;
-      }
-      .expertise-cards {
-        grid-template-columns: 1fr;
-      }
-      .expertise-scroll-spacer {
-        display: none;
-      }
     }
 
     /* ======================================================
@@ -1141,18 +1059,13 @@
   <!-- ====================================================
        EXPERTISE
   ==================================================== -->
-  <div id="expertise" style="position:relative;">
-    <div class="expertise-sticky-container" id="expertiseStickyContainer" style="position:static;height:auto;overflow:visible;">
-      <div class="expertise-inner">
-        <div class="expertise-row">
-        <div class="expertise-label reveal-section">
-          <span class="section-tag">01 — Vos besoins</span>
-          <h2>Des missions sur-mesure</h2>
-          <p>Adaptées aux réalités opérationnelles des bailleurs sociaux.</p>
-        </div>
-
-        <div class="expertise-cards-wrapper">
-          <div class="expertise-cards" id="expertiseCards">
+  <section id="expertise" aria-labelledby="expertiseTitle" style="padding:6rem 2rem;">
+    <div class="section-header reveal-section" style="max-width:1100px;margin:0 auto 3rem;">
+      <span class="section-tag">01 — Vos besoins</span>
+      <h2 id="expertiseTitle" style="font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:400;margin-top:0.5rem;">Des missions sur-mesure</h2>
+      <p style="color:var(--text-muted);font-size:0.9375rem;font-weight:300;line-height:1.7;max-width:580px;margin:1rem auto 0;text-align:center;">Adaptées aux réalités opérationnelles des bailleurs sociaux.</p>
+    </div>
+    <div class="expertise-cards">
 
             <article class="expertise-card">
               <div class="card-icon" aria-hidden="true">
@@ -1197,11 +1110,9 @@
             </article>
 
           </div>
-        </div>
-        </div><!-- /.expertise-row -->
 
-        <!-- Quick-win -->
-        <div style="padding:1.5rem 2rem;background:var(--accent-dim);border:1px solid rgba(217,91,48,0.25);border-radius:2px;max-width:680px;">
+    <!-- Quick-win -->
+    <div style="margin:3rem auto 0;padding:1.5rem 2rem;background:var(--accent-dim);border:1px solid rgba(217,91,48,0.25);border-radius:2px;max-width:680px;">
           <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;">L'expertise « quick-win »</p>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
             <p style="font-size:0.875rem;color:var(--text);display:flex;align-items:center;gap:0.5rem;">&#10003; Prise de poste rapide</p>
@@ -1209,11 +1120,8 @@
             <p style="font-size:0.875rem;color:var(--text);display:flex;align-items:center;gap:0.5rem;">&#10003; Résultats mesurables</p>
             <p style="font-size:0.875rem;color:var(--text);display:flex;align-items:center;gap:0.5rem;">&#10003; Gestion des situations complexes</p>
           </div>
-        </div>
-
-      </div>
     </div>
-  </div>
+  </section>
 
   <!-- ====================================================
        CHIFFRES CLÉS
@@ -1527,41 +1435,6 @@
     });
 
     /* ==================================================
-       EXPERTISE — STICKY HORIZONTAL SCROLL
-    ================================================== */
-    const expertiseSection = document.getElementById('expertise');
-    const expertiseSpacer = document.getElementById('expertiseScrollSpacer');
-    const expertiseCards = document.getElementById('expertiseCards');
-    const expertiseStickyContainer = document.getElementById('expertiseStickyContainer');
-
-    function setupExpertiseScroll() {
-      // Only on desktop
-      if (window.innerWidth <= 900 || prefersReduced) return;
-      // La mise en page est desormais une grille statique : sans spacer, rien a animer
-      if (!expertiseSpacer || !expertiseCards || !expertiseSection) return;
-
-      const onExpertiseScroll = () => {
-        const rect = expertiseSection.getBoundingClientRect();
-        const sectionTop = expertiseSection.offsetTop;
-        const sectionHeight = expertiseSpacer.offsetHeight;
-        const scrolled = window.scrollY - sectionTop;
-        const progress = Math.min(Math.max(scrolled / (sectionHeight - window.innerHeight), 0), 1);
-
-        // Cards total width minus visible area
-        const cardsWidth = expertiseCards.scrollWidth;
-        const wrapperWidth = expertiseCards.parentElement.offsetWidth;
-        const maxTranslate = cardsWidth - wrapperWidth;
-
-        const tx = -progress * maxTranslate;
-        expertiseCards.style.transform = `translateX(${tx}px)`;
-      };
-
-      window.addEventListener('scroll', onExpertiseScroll, { passive: true });
-    }
-
-    setupExpertiseScroll();
-
-    /* ==================================================
        INTERSECTION OBSERVER — GENERAL
     ================================================== */
     const io = new IntersectionObserver((entries) => {
@@ -1702,19 +1575,6 @@
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
-    });
-
-    /* ==================================================
-       RESIZE — RESET EXPERTISE ON RESIZE
-    ================================================== */
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        if (expertiseCards) {
-          expertiseCards.style.transform = '';
-        }
-      }, 300);
     });
 
   })();
