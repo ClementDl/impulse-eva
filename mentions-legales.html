@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mentions légales du site IMPULSE — Eva Buron, management de transition opérationnel et conseil en logement social." />
+  <meta name="robots" content="index, follow" />
+  <title>Mentions légales — IMPULSE</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #111111;
+      --bg-subtle: #0D0D0D;
+      --text: #F0EDE8;
+      --text-muted: #8A8580;
+      --accent: #D95B30;
+      --rule: rgba(240, 237, 232, 0.08);
+      --font-serif: 'DM Serif Display', Georgia, serif;
+      --font-sans: 'Outfit', system-ui, sans-serif;
+    }
+
+    body.light-mode {
+      --bg: #F5F3EF;
+      --bg-subtle: #E8E4DC;
+      --text: #1A1714;
+      --text-muted: #6B6560;
+      --rule: rgba(26, 23, 20, 0.10);
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ---------- Header ---------- */
+    .ml-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 2rem 5vw;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .ml-logo {
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .ml-back {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .ml-back:hover { color: var(--text); border-color: var(--text); }
+
+    /* ---------- Contenu ---------- */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 5rem 5vw 6rem;
+    }
+
+    .section-tag {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .ml-updated {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 4rem;
+    }
+
+    h2 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin: 3.5rem 0 1.25rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+
+    p { margin-bottom: 1rem; color: var(--text-muted); font-weight: 300; }
+    p strong { color: var(--text); font-weight: 500; }
+
+    main a[href^="mailto"], main a[href^="tel"], main a[href^="http"] {
+      color: var(--text);
+      border-bottom: 1px solid rgba(217, 91, 48, 0.5);
+      transition: border-color 0.2s ease;
+    }
+
+    main a[href^="mailto"]:hover, main a[href^="tel"]:hover, main a[href^="http"]:hover {
+      border-color: var(--accent);
+    }
+
+    /* ---------- Fiche d'identité ---------- */
+    dl {
+      display: grid;
+      grid-template-columns: minmax(140px, 34%) 1fr;
+      gap: 0.65rem 1.5rem;
+      margin: 1.5rem 0 0;
+      font-size: 0.9375rem;
+    }
+
+    dt {
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    dd { color: var(--text); font-weight: 400; }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: var(--bg-subtle);
+      border-top: 1px solid var(--rule);
+      padding: 2.5rem 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .footer-copy, .footer-legal {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    @media (max-width: 600px) {
+      dl { grid-template-columns: 1fr; gap: 0.15rem; }
+      dt { margin-top: 0.75rem; font-size: 0.8125rem; }
+      main { padding-top: 3.5rem; }
+      h2 { margin-top: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    /* Reprend le thème choisi sur la page d'accueil, avant le premier rendu */
+    try {
+      if (localStorage.getItem('impulse-theme') === 'light') {
+        document.body.classList.add('light-mode');
+      }
+    } catch (e) {}
+  </script>
+
+  <header class="ml-header">
+    <a href="/" class="ml-logo" aria-label="IMPULSE — retour à l'accueil">IMPULSE</a>
+    <a href="/" class="ml-back">&#8592; Retour au site</a>
+  </header>
+
+  <main>
+    <span class="section-tag">Informations légales</span>
+    <h1>Mentions légales</h1>
+    <p class="ml-updated">Conformément à l'article 6-III de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique.</p>
+
+    <h2>Éditeur du site</h2>
+    <dl>
+      <dt>Dénomination sociale</dt>
+      <dd>IMPULSE</dd>
+
+      <dt>Forme juridique</dt>
+      <dd>SASU — société par actions simplifiée unipersonnelle</dd>
+
+      <dt>Capital social</dt>
+      <dd>1 000 €</dd>
+
+      <dt>Siège social</dt>
+      <dd>3 allée Jacques Cartier, 78560 Le Port-Marly, France</dd>
+
+      <dt>SIREN</dt>
+      <dd>938 204 732</dd>
+
+      <dt>SIRET (siège)</dt>
+      <dd>938 204 732 00011</dd>
+
+      <dt>RCS</dt>
+      <dd>938 204 732 R.C.S. Versailles</dd>
+
+      <dt>TVA intracommunautaire</dt>
+      <dd>FR31938204732</dd>
+
+      <dt>Code APE</dt>
+      <dd>70.22Z — Conseil pour les affaires et autres conseils de gestion</dd>
+
+      <dt>Téléphone</dt>
+      <dd><a href="tel:+33686492754">06 86 49 27 54</a></dd>
+
+      <dt>Courriel</dt>
+      <dd><a href="mailto:eva.buron@impulse-conseil.com">eva.buron@impulse-conseil.com</a></dd>
+    </dl>
+
+    <h2>Directrice de la publication</h2>
+    <p>Madame <strong>Eva Buron</strong>, présidente de la société IMPULSE, en sa qualité de représentante légale.</p>
+
+    <h2>Hébergeur</h2>
+    <!-- APRÈS MIGRATION OVH : remplacer le bloc <p> ci-dessous par
+         <p><strong>OVH SAS</strong><br />
+         2 rue Kellermann, 59100 Roubaix, France<br />
+         Téléphone : 1007 — <a href="https://www.ovhcloud.com" target="_blank" rel="noopener noreferrer">www.ovhcloud.com</a></p>
+         ...et supprimer la phrase sur le transfert hors UE dans la section « Données personnelles ». -->
+    <p><strong>Vercel Inc.</strong><br />
+    440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis<br />
+    <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">vercel.com</a></p>
+
+    <h2>Propriété intellectuelle</h2>
+    <p>L'ensemble des éléments composant ce site — structure, textes, identité visuelle, logotype IMPULSE, photographies et illustrations — est la propriété exclusive de la société IMPULSE ou de ses ayants droit, et est protégé par le code de la propriété intellectuelle.</p>
+    <p>Toute reproduction, représentation, adaptation ou exploitation, totale ou partielle, par quelque procédé et sur quelque support que ce soit, est interdite sans autorisation écrite préalable. Les organismes mentionnés à titre illustratif dans les cas concrets restent la propriété de leurs détenteurs respectifs.</p>
+
+    <h2>Données personnelles</h2>
+    <p>Ce site ne comporte <strong>aucun formulaire, aucun compte utilisateur et aucun outil de mesure d'audience</strong>. Aucune donnée n'est collectée à votre insu lors de la simple consultation des pages.</p>
+    <p>Si vous choisissez de prendre contact par courriel ou par téléphone, les informations que vous transmettez — identité, coordonnées, contenu de votre demande — sont traitées par IMPULSE dans le seul but de répondre à votre sollicitation et, le cas échéant, de préparer une relation contractuelle. La base légale de ce traitement est l'exécution de mesures précontractuelles ainsi que l'intérêt légitime de l'éditeur. Ces données sont conservées trois ans à compter du dernier échange, puis supprimées. Elles ne sont ni cédées, ni louées, ni transmises à des tiers à des fins commerciales.</p>
+    <p>Deux traitements techniques sont portés à votre connaissance. Le site est hébergé par Vercel Inc. aux États-Unis, ce qui implique un transfert de vos données de connexion hors de l'Union européenne, encadré par les clauses contractuelles types de la Commission européenne. Par ailleurs, les polices de caractères sont chargées depuis les serveurs de Google LLC, qui reçoit à cette occasion votre adresse IP.</p>
+    <p>Conformément au règlement (UE) 2016/679 et à la loi « Informatique et Libertés », vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité sur vos données. Pour l'exercer, écrivez à <a href="mailto:eva.buron@impulse-conseil.com">eva.buron@impulse-conseil.com</a>. Vous pouvez également introduire une réclamation auprès de la CNIL — <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>.</p>
+
+    <h2>Cookies</h2>
+    <p>Ce site <strong>ne dépose aucun cookie</strong> : ni mesure d'audience, ni publicité, ni bouton de réseau social. Aucun consentement n'est donc requis et aucun bandeau ne vous est présenté.</p>
+    <p>Seul un indicateur technique est enregistré dans la mémoire locale de votre navigateur afin de mémoriser votre préférence d'affichage entre le fond clair et le fond sombre. Il ne contient aucune donnée personnelle, n'est jamais transmis à un serveur, et relève des traitements strictement nécessaires exemptés de consentement au sens de l'article 82 de la loi « Informatique et Libertés ». Vous pouvez l'effacer à tout moment en vidant les données de site de votre navigateur.</p>
+
+    <h2>Responsabilité</h2>
+    <p>Les informations diffusées sur ce site sont fournies à titre indicatif et présentées avec le plus grand soin. IMPULSE ne saurait toutefois garantir leur exhaustivité ni leur parfaite actualité, et se réserve le droit d'en modifier le contenu à tout moment et sans préavis. Elles ne constituent en aucun cas un conseil professionnel personnalisé, lequel ne peut résulter que d'une mission formalisée.</p>
+    <p>Les liens sortants vers des sites tiers sont proposés pour votre commodité ; IMPULSE n'exerce aucun contrôle sur leur contenu et décline toute responsabilité à cet égard.</p>
+
+    <h2>Droit applicable</h2>
+    <p>Les présentes mentions légales sont régies par le droit français. Tout litige relatif à l'utilisation du site relève de la compétence des tribunaux français.</p>
+  </main>
+
+  <footer>
+    <span class="footer-logo">IMPULSE</span>
+    <p class="footer-copy">© 2026 IMPULSE — SASU · Tous droits réservés.</p>
+    <p class="footer-legal">Management de transition opérationnel &amp; conseil en logement social</p>
+  </footer>
+</body>
+</html>
