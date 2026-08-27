@@ -876,18 +876,19 @@
       background: var(--bg-subtle);
       border-top: 1px solid rgba(240, 237, 232, 0.06);
       /* Marge basse : degage le bouton flottant "Deposer un avis" (fixed, bottom 2rem) */
-      padding: 2.5rem 5vw 6.5rem;
+      padding: 4rem 5vw 7rem;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
+      text-align: center;
+      gap: 1.5rem;
     }
 
     .footer-logo {
       display: block;
       line-height: 0;
       color: var(--text);
+      margin-bottom: 0.5rem;
       transition: opacity var(--transition-fast);
     }
 
@@ -895,26 +896,41 @@
       opacity: 0.65;
     }
 
-    .footer-copy {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      font-weight: 300;
-    }
-
+    /* Baseline */
     .footer-legal {
-      font-size: 0.8rem;
-      color: var(--text-muted);
+      font-size: 0.875rem;
+      color: var(--text);
       font-weight: 300;
+      letter-spacing: 0.01em;
+      max-width: 60ch;
     }
 
-    .footer-legal a {
+    /* Lien mentions legales */
+    .footer-links a {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      letter-spacing: 0.04em;
       border-bottom: 1px solid rgba(138, 133, 128, 0.3);
+      padding-bottom: 1px;
       transition: color var(--transition-fast), border-color var(--transition-fast);
     }
 
-    .footer-legal a:hover {
-      color: var(--text);
-      border-color: var(--text);
+    .footer-links a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Copyright, dernier et le plus discret */
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-top: 0.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(240, 237, 232, 0.06);
+      width: 100%;
+      max-width: 320px;
     }
 
     /* ======================================================
@@ -1108,7 +1124,7 @@
   ==================================================== -->
   <section style="padding:6rem 5vw;max-width:900px;margin:0 auto;" class="reveal-section">
     <h2 style="font-family:var(--font-serif);font-size:clamp(3rem,6vw,5rem);font-weight:400;line-height:1.15;margin-bottom:1.5rem;">Le management de transition opérationnel, c'est quoi ?</h2>
-    <p style="font-size:0.9375rem;font-weight:300;color:var(--text);line-height:1.8;margin-bottom:2.5rem;">C'est un manager expérimenté qui « met les mains dans le cambouis » pendant quelques mois, avec des objectifs concrets de performance, d'organisation ou de transformation. J'interviens au cÅ“ur des opérations pour prendre en main des postes clés, résoudre des problèmes concrets et obtenir des résultats rapides.</p>
+    <p style="font-size:0.9375rem;font-weight:300;color:var(--text);line-height:1.8;margin-bottom:2.5rem;">C'est un manager expérimenté qui « met les mains dans le cambouis » pendant quelques mois, avec des objectifs concrets de performance, d'organisation ou de transformation. J'interviens au cœur des opérations pour prendre en main des postes clés, résoudre des problèmes concrets et obtenir des résultats rapides.</p>
     <div style="display:flex;flex-direction:column;gap:3rem;margin-top:0.5rem;">
       <div style="display:flex;flex-direction:column;gap:0.5rem;">
         <p style="font-size:0.6875rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-size:0.9375rem;letter-spacing:0.15em;">Phase 1 — Constats &amp; analyses</p>
@@ -1293,7 +1309,7 @@
   <section id="apropos" aria-labelledby="aproposTitle" style="padding:8rem 5vw;">
     <div style="max-width:720px;margin:0 auto;">
       <div class="apropos-content">
-        <img src="/eva.jpg" alt="Eva Buron, fondatrice d'IMPULSE" style="width:160px;height:160px;object-fit:cover;object-position:center 15%;border:1px solid rgba(217,91,48,0.3);display:block;float:right;margin:0 0 1.5rem 2.5rem;mix-blend-mode:multiply;" />
+        <img src="/eva.jpg" alt="Eva Buron, fondatrice d'IMPULSE" style="width:160px;height:160px;object-fit:cover;object-position:center 15%;border:1px solid rgba(217,91,48,0.3);display:block;float:right;margin:0 0 1.5rem 2.5rem;" />
         <span class="section-tag">04 — À propos</span>
         <h2 id="aproposTitle">Eva Buron, fondatrice d'IMPULSE</h2>
 
@@ -1409,8 +1425,9 @@
         <use href="#impulse-logo" />
       </svg>
     </a>
+    <p class="footer-legal">Management de transition opérationnel &amp; conseil en logement social</p>
+    <p class="footer-links"><a href="/mentions-legales.html">Mentions légales</a></p>
     <p class="footer-copy">© 2026 IMPULSE — SASU · Tous droits réservés.</p>
-    <p class="footer-legal">Management de transition opérationnel &amp; conseil en logement social · <a href="/mentions-legales.html">Mentions légales</a></p>
   </footer>
 
 

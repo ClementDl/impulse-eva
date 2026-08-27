@@ -153,27 +153,40 @@
     footer {
       background: var(--bg-subtle);
       border-top: 1px solid var(--rule);
-      padding: 2.5rem 5vw;
+      padding: 4rem 5vw;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
+      text-align: center;
+      gap: 1.5rem;
     }
 
     .footer-logo {
       display: block;
       line-height: 0;
       color: var(--text);
+      margin-bottom: 0.5rem;
       transition: opacity 0.2s ease;
     }
 
     .footer-logo:hover { opacity: 0.65; }
 
-    .footer-copy, .footer-legal {
-      font-size: 0.8rem;
+    .footer-legal {
+      font-size: 0.875rem;
+      color: var(--text);
+      font-weight: 300;
+      max-width: 60ch;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
       color: var(--text-muted);
       font-weight: 300;
+      margin-top: 0.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      width: 100%;
+      max-width: 320px;
     }
 
     @media (max-width: 600px) {
@@ -294,8 +307,8 @@
         <use href="#impulse-logo" />
       </svg>
     </a>
-    <p class="footer-copy">© 2026 IMPULSE — SASU · Tous droits réservés.</p>
     <p class="footer-legal">Management de transition opérationnel &amp; conseil en logement social</p>
+    <p class="footer-copy">© 2026 IMPULSE — SASU · Tous droits réservés.</p>
   </footer>
 </body>
 </html>
