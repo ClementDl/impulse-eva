@@ -6,8 +6,8 @@
   <meta name="description" content="Mentions légales du site IMPULSE — Eva Buron, management de transition opérationnel et conseil en logement social." />
   <meta name="robots" content="index, follow" />
   <title>Mentions légales — IMPULSE</title>
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -156,38 +156,31 @@
       border-top: 1px solid var(--rule);
       padding: 2rem 5vw;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      text-align: center;
-      gap: 0.75rem;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem 2.5rem;
     }
 
     .footer-logo {
       display: block;
       line-height: 0;
       color: var(--text);
-      margin-bottom: 0.25rem;
       transition: opacity 0.2s ease;
     }
 
     .footer-logo:hover { opacity: 0.65; }
 
     .footer-legal {
-      font-size: 0.875rem;
+      font-size: 0.8125rem;
       color: var(--text);
       font-weight: 300;
-      max-width: 60ch;
     }
 
     .footer-copy {
       font-size: 0.75rem;
       color: var(--text-muted);
       font-weight: 300;
-      margin-top: 0.25rem;
-      padding-top: 0.9rem;
-      border-top: 1px solid var(--rule);
-      width: 100%;
-      max-width: 320px;
     }
 
     @media (max-width: 600px) {
@@ -223,12 +216,12 @@
   </svg>
 
   <header class="ml-header">
-    <a href="/" class="ml-logo" aria-label="IMPULSE — retour à l'accueil">
+    <a href="index.html" class="ml-logo" aria-label="IMPULSE — retour à l'accueil">
       <svg viewBox="0 0 610 106" height="26" width="auto" role="img" aria-label="IMPULSE" style="display:block;">
         <use href="#impulse-logo" />
       </svg>
     </a>
-    <a href="/" class="ml-back">&#8592; Retour au site</a>
+    <a href="index.html" class="ml-back">&#8592; Retour au site</a>
   </header>
 
   <main>
@@ -303,7 +296,7 @@
   </main>
 
   <footer>
-    <a href="/" class="footer-logo" aria-label="IMPULSE - retour a l'accueil">
+    <a href="index.html" class="footer-logo" aria-label="IMPULSE - retour a l'accueil">
       <svg viewBox="0 0 610 106" height="22" width="auto" role="img" aria-label="IMPULSE" style="display:block;">
         <use href="#impulse-logo" />
       </svg>

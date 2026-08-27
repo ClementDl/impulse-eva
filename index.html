@@ -11,8 +11,8 @@
   <meta property="og:type" content="website" />
   <meta name="robots" content="index, follow" />
   <title>IMPULSE — Management de transition & conseil | Eva Buron</title>
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -414,10 +414,18 @@
 
     .expertise-inner {
       display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      padding: 6rem 5vw;
+      gap: 3rem;
+    }
+
+    /* Rangee label + cartes ; le quick-win se place dessous */
+    .expertise-row {
+      display: flex;
       align-items: center;
       width: 100%;
-      height: 100%;
-      padding: 0 5vw;
       gap: 6vw;
     }
 
@@ -457,13 +465,12 @@
     }
 
     .expertise-cards {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.5rem;
-      will-change: transform;
     }
 
     .expertise-card {
-      flex: 0 0 clamp(240px, 22vw, 300px);
       background: var(--bg-elevated);
       border: 1px solid rgba(240, 237, 232, 0.06);
       border-radius: 4px;
@@ -535,18 +542,16 @@
         overflow: visible;
       }
       .expertise-inner {
-        flex-direction: column;
-        align-items: flex-start;
         padding: 4rem 1.5rem;
         gap: 3rem;
       }
-      .expertise-cards {
+      .expertise-row {
         flex-direction: column;
-        transform: none !important;
+        align-items: flex-start;
+        gap: 3rem;
       }
-      .expertise-card {
-        flex: 1;
-        max-width: 100%;
+      .expertise-cards {
+        grid-template-columns: 1fr;
       }
       .expertise-scroll-spacer {
         display: none;
@@ -879,17 +884,16 @@
       /* Marge basse : degage le bouton flottant "Deposer un avis" (fixed, bottom 2rem) */
       padding: 2rem 5vw 5.5rem;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      text-align: center;
-      gap: 0.75rem;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem 2.5rem;
     }
 
     .footer-logo {
       display: block;
       line-height: 0;
       color: var(--text);
-      margin-bottom: 0.25rem;
       transition: opacity var(--transition-fast);
     }
 
@@ -899,11 +903,10 @@
 
     /* Baseline */
     .footer-legal {
-      font-size: 0.875rem;
+      font-size: 0.8125rem;
       color: var(--text);
       font-weight: 300;
       letter-spacing: 0.01em;
-      max-width: 60ch;
     }
 
     /* Lien mentions legales */
@@ -922,16 +925,11 @@
       border-color: var(--accent);
     }
 
-    /* Copyright, dernier et le plus discret */
+    /* Copyright, le plus discret */
     .footer-copy {
       font-size: 0.75rem;
       color: var(--text-muted);
       font-weight: 300;
-      margin-top: 0.25rem;
-      padding-top: 0.9rem;
-      border-top: 1px solid rgba(240, 237, 232, 0.06);
-      width: 100%;
-      max-width: 320px;
     }
 
     /* ======================================================
@@ -1124,7 +1122,7 @@
        C'EST QUOI
   ==================================================== -->
   <section style="padding:6rem 5vw;max-width:900px;margin:0 auto;" class="reveal-section">
-    <h2 style="font-family:var(--font-serif);font-size:clamp(3rem,6vw,5rem);font-weight:400;line-height:1.15;margin-bottom:1.5rem;">Le management de transition opérationnel, c'est quoi ?</h2>
+    <h2 style="font-family:var(--font-serif);font-size:clamp(2.5rem,5vw,4rem);font-weight:400;line-height:1.15;margin-bottom:1.5rem;">Le management de transition opérationnel, c'est quoi ?</h2>
     <p style="font-size:0.9375rem;font-weight:300;color:var(--text);line-height:1.8;margin-bottom:2.5rem;">C'est un manager expérimenté qui « met les mains dans le cambouis » pendant quelques mois, avec des objectifs concrets de performance, d'organisation ou de transformation. J'interviens au cœur des opérations pour prendre en main des postes clés, résoudre des problèmes concrets et obtenir des résultats rapides.</p>
     <div style="display:flex;flex-direction:column;gap:3rem;margin-top:0.5rem;">
       <div style="display:flex;flex-direction:column;gap:0.5rem;">
@@ -1146,6 +1144,7 @@
   <div id="expertise" style="position:relative;">
     <div class="expertise-sticky-container" id="expertiseStickyContainer" style="position:static;height:auto;overflow:visible;">
       <div class="expertise-inner">
+        <div class="expertise-row">
         <div class="expertise-label reveal-section">
           <span class="section-tag">01 — Vos besoins</span>
           <h2>Des missions sur-mesure</h2>
@@ -1199,9 +1198,10 @@
 
           </div>
         </div>
+        </div><!-- /.expertise-row -->
 
         <!-- Quick-win -->
-        <div style="margin-top:2.5rem;padding:1.5rem 2rem;background:var(--accent-dim);border:1px solid rgba(217,91,48,0.25);border-radius:2px;max-width:680px;">
+        <div style="padding:1.5rem 2rem;background:var(--accent-dim);border:1px solid rgba(217,91,48,0.25);border-radius:2px;max-width:680px;">
           <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;">L'expertise « quick-win »</p>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
             <p style="font-size:0.875rem;color:var(--text);display:flex;align-items:center;gap:0.5rem;">&#10003; Prise de poste rapide</p>
@@ -1228,7 +1228,7 @@
     <div style="max-width:900px;margin:3rem auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;text-align:left;">
       <div style="padding:1.5rem;border-top:2px solid var(--accent);">
         <h3 style="font-family:var(--font-serif);font-size:1.25rem;font-weight:400;margin-bottom:0.75rem;">Des équipes apaisées</h3>
-        <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.75;font-weight:300;">Confiance retrouvée, turnover maîtrisé, cohésion renforcée. Vos équipes retrouvent envie et efficacité.</p>
+        <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.75;font-weight:300;">Confiance retrouvée, relations maîtrisées, cohésion renforcée. Vos équipes retrouvent envie et efficacité.</p>
       </div>
       <div style="padding:1.5rem;border-top:2px solid var(--accent);">
         <h3 style="font-family:var(--font-serif);font-size:1.25rem;font-weight:400;margin-bottom:0.75rem;">Des processus efficaces</h3>
@@ -1311,13 +1311,13 @@
     <div style="max-width:720px;margin:0 auto;">
       <div class="apropos-content">
         <picture>
-          <source srcset="/eva-320.webp" type="image/webp" />
-          <img src="/eva-320.jpg" alt="Eva Buron, fondatrice d'IMPULSE" width="160" height="160" loading="lazy" decoding="async" style="width:160px;height:160px;border:1px solid rgba(217,91,48,0.3);display:block;float:right;margin:0 0 1.5rem 2.5rem;" />
+          <source srcset="eva-320.webp" type="image/webp" />
+          <img src="eva-320.jpg" alt="Eva Buron, fondatrice d'IMPULSE" width="160" height="160" loading="lazy" decoding="async" style="width:160px;height:160px;border:1px solid rgba(217,91,48,0.3);display:block;float:right;margin:0 0 1.5rem 2.5rem;" />
         </picture>
         <span class="section-tag">04 — À propos</span>
         <h2 id="aproposTitle">Eva Buron, fondatrice d'IMPULSE</h2>
 
-        <p class="bio-line">Parce que le travail doit rester un lieu d'épanouissement. J'ai appris que les conflits non résolus coûtent cher — en turnover, en productivité, en énergie. Aujourd'hui, je mets mon expertise technique au service de l'humain pour que vos équipes se sentent écoutées et vos objectifs soient atteints.</p>
+        <p class="bio-line">Parce que le travail doit rester un lieu d'épanouissement. J'ai appris que les conflits non résolus coûtent cher — en relations, en productivité, en énergie. Aujourd'hui, je mets mon expertise technique au service de l'humain pour que vos équipes se sentent écoutées et vos objectifs soient atteints.</p>
 
         <p class="bio-line">Passionnée par le management et le pilotage de projets, j'ai occupé pendant plus de 10 ans des postes à responsabilité en ESH et OPH. Ma formation de clerc expert aux procédures me permet d'intégrer les questions réglementaires et juridiques sans perdre de vue l'essentiel : les personnes.</p>
 
@@ -1430,7 +1430,7 @@
       </svg>
     </a>
     <p class="footer-legal">Management de transition opérationnel &amp; conseil en logement social</p>
-    <p class="footer-links"><a href="/mentions-legales.html">Mentions légales</a></p>
+    <p class="footer-links"><a href="mentions-legales.html">Mentions légales</a></p>
     <p class="footer-copy">© 2026 IMPULSE — SASU · Tous droits réservés.</p>
   </footer>
 
@@ -1537,6 +1537,8 @@
     function setupExpertiseScroll() {
       // Only on desktop
       if (window.innerWidth <= 900 || prefersReduced) return;
+      // La mise en page est desormais une grille statique : sans spacer, rien a animer
+      if (!expertiseSpacer || !expertiseCards || !expertiseSection) return;
 
       const onExpertiseScroll = () => {
         const rect = expertiseSection.getBoundingClientRect();
