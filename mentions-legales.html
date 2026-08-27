@@ -60,12 +60,13 @@
     }
 
     .ml-logo {
-      font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
+      display: block;
+      line-height: 0;
+      color: var(--text);
+      transition: opacity 0.2s ease;
     }
+
+    .ml-logo:hover { opacity: 0.65; }
 
     .ml-back {
       font-size: 0.8125rem;
@@ -161,12 +162,13 @@
     }
 
     .footer-logo {
-      font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
+      display: block;
+      line-height: 0;
+      color: var(--text);
+      transition: opacity 0.2s ease;
     }
+
+    .footer-logo:hover { opacity: 0.65; }
 
     .footer-copy, .footer-legal {
       font-size: 0.8rem;
@@ -192,8 +194,26 @@
     } catch (e) {}
   </script>
 
+  <!-- Logotype IMPULSE, defini une seule fois puis reference par <use> (nav + footer) -->
+  <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="impulse-logo" viewBox="0 0 610 106" fill="currentColor">
+    <path transform="matrix(1,0,0,-1,78.34412,51.809328)" d="M0 0C.38 .318 .799 .586 1.248 .795 4.086 2.118 7.459 .891 8.782-1.947L25.454-37.701C27.439-41.957 32.499-43.799 36.756-41.814 37.429-41.5 38.059-41.099 38.628-40.621L87.038 0C87.418 .318 87.837 .586 88.286 .795 91.124 2.118 94.497 .891 95.821-1.947L114.782-42.611H117.91L98.39-.749C96.405 3.507 91.345 5.349 87.089 3.364 86.415 3.05 85.785 2.649 85.216 2.171L36.806-38.45C36.426-38.768 36.007-39.036 35.558-39.245 32.72-40.568 29.347-39.34 28.024-36.503L11.351-.749C9.366 3.507 4.307 5.349 .05 3.364-.623 3.05-1.253 2.649-1.822 2.171L-49.442-37.786C-51.974-39.911-55.507-40.376-58.502-38.979-62.759-36.994-64.6-31.935-62.615-27.678L-47.769 4.161H-50.896L-65.185-26.48C-67.831-32.156-65.376-38.902-59.7-41.548-55.707-43.411-50.996-42.79-47.62-39.958Z"/>
+    <path transform="matrix(1,0,0,-1,289.81263,90.16809)" d="M0 0C-3.131 0-5.669 2.538-5.669 5.669V42.52H-9.921V5.669C-9.921 .19-5.479-4.252 0-4.252H59.528C65.007-4.252 69.449 .19 69.449 5.669V42.52H65.197V5.669C65.197 2.538 62.659 0 59.528 0Z"/>
+    <path transform="matrix(1,0,0,-1,377.68666,84.49878)" d="M0 0V36.85H-4.252V0C-4.252-5.479 .19-9.921 5.669-9.921H75.118V-5.669H5.669C2.538-5.669 0-3.131 0 0"/>
+    <path transform="matrix(1,0,0,-1,599.50039,51.90039)" d="M0 0V4.252H-69.449C-74.928 4.252-79.37-.19-79.37-5.669V-32.598C-79.37-38.078-74.928-42.52-69.449-42.52H0V-38.268H-69.449C-72.58-38.268-75.118-35.729-75.118-32.598V-5.669C-75.118-2.538-72.58 0-69.449 0Z"/>
+    <path transform="matrix(1,0,0,-1,-1367,1258.45)" d="M1945.24 1189.542H1897.051V1185.29H1945.24Z" fill="#D95B30"/>
+    <path transform="matrix(1,0,0,-1,209.01001,94.420047)" d="M0 0V21.26H45.37C50.849 21.26 55.291 25.702 55.291 31.181V36.85C55.291 42.33 50.849 46.772 45.37 46.772H-24.079V42.52H45.37C48.501 42.52 51.039 39.981 51.039 36.85V31.181C51.039 28.05 48.501 25.512 45.37 25.512H-4.252V0Z"/>
+    <path transform="matrix(1,0,0,-1,501.70509,84.49878)" d="M0 0C0-3.131-2.538-5.669-5.669-5.669H-40.396V-9.921H-5.669C-.19-9.921 4.252-5.479 4.252 0V5.669C4.252 11.149-.19 15.591-5.669 15.591H-65.197C-68.328 15.591-70.866 18.129-70.866 21.26V26.929C-70.866 30.06-68.328 32.598-65.197 32.598H4.252V36.85H-65.197C-70.676 36.85-75.118 32.408-75.118 26.929V21.26C-75.118 15.781-70.676 11.339-65.197 11.339H-5.669C-2.538 11.339 0 8.8 0 5.669Z"/>
+    <path transform="matrix(1,0,0,-1,73.1958,13.056763)" d="M0 0C4.042-2.104 2.589-5.892-3.674-9.576-12.162-14.568-26.615-17.758-35.957-16.702-45.299-15.645-45.991-10.741-37.504-5.749-29.016-.757-14.562 2.433-5.22 1.377-10.457 .72-15.49-.055-20.394-1.09-21.761-1.378-23.118-1.687-24.462-2.073-30.93-3.931-37.095-7.579-37.83-10.572-38.006-11.286-37.872-11.964-37.426-12.498-35.724-14.536-29.483-14.497-22.239-13.087-20.434-12.735-18.567-12.299-16.624-11.797-7.911-9.546 2.342-5.978 0 0" fill="#D95B30"/>
+    </symbol>
+  </svg>
+
   <header class="ml-header">
-    <a href="/" class="ml-logo" aria-label="IMPULSE — retour à l'accueil">IMPULSE</a>
+    <a href="/" class="ml-logo" aria-label="IMPULSE — retour à l'accueil">
+      <svg viewBox="0 0 610 106" height="26" width="auto" role="img" aria-label="IMPULSE" style="display:block;">
+        <use href="#impulse-logo" />
+      </svg>
+    </a>
     <a href="/" class="ml-back">&#8592; Retour au site</a>
   </header>
 
@@ -242,14 +262,9 @@
     <p>Madame <strong>Eva Buron</strong>, présidente de la société IMPULSE, en sa qualité de représentante légale.</p>
 
     <h2>Hébergeur</h2>
-    <!-- APRÈS MIGRATION OVH : remplacer le bloc <p> ci-dessous par
-         <p><strong>OVH SAS</strong><br />
-         2 rue Kellermann, 59100 Roubaix, France<br />
-         Téléphone : 1007 — <a href="https://www.ovhcloud.com" target="_blank" rel="noopener noreferrer">www.ovhcloud.com</a></p>
-         ...et supprimer la phrase sur le transfert hors UE dans la section « Données personnelles ». -->
-    <p><strong>Vercel Inc.</strong><br />
-    440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis<br />
-    <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">vercel.com</a></p>
+    <p><strong>OVH SAS</strong><br />
+    2 rue Kellermann, 59100 Roubaix, France<br />
+    Téléphone : 1007 — <a href="https://www.ovhcloud.com" target="_blank" rel="noopener noreferrer">www.ovhcloud.com</a></p>
 
     <h2>Propriété intellectuelle</h2>
     <p>L'ensemble des éléments composant ce site — structure, textes, identité visuelle, logotype IMPULSE, photographies et illustrations — est la propriété exclusive de la société IMPULSE ou de ses ayants droit, et est protégé par le code de la propriété intellectuelle.</p>
@@ -258,7 +273,7 @@
     <h2>Données personnelles</h2>
     <p>Ce site ne comporte <strong>aucun formulaire, aucun compte utilisateur et aucun outil de mesure d'audience</strong>. Aucune donnée n'est collectée à votre insu lors de la simple consultation des pages.</p>
     <p>Si vous choisissez de prendre contact par courriel ou par téléphone, les informations que vous transmettez — identité, coordonnées, contenu de votre demande — sont traitées par IMPULSE dans le seul but de répondre à votre sollicitation et, le cas échéant, de préparer une relation contractuelle. La base légale de ce traitement est l'exécution de mesures précontractuelles ainsi que l'intérêt légitime de l'éditeur. Ces données sont conservées trois ans à compter du dernier échange, puis supprimées. Elles ne sont ni cédées, ni louées, ni transmises à des tiers à des fins commerciales.</p>
-    <p>Deux traitements techniques sont portés à votre connaissance. Le site est hébergé par Vercel Inc. aux États-Unis, ce qui implique un transfert de vos données de connexion hors de l'Union européenne, encadré par les clauses contractuelles types de la Commission européenne. Par ailleurs, les polices de caractères sont chargées depuis les serveurs de Google LLC, qui reçoit à cette occasion votre adresse IP.</p>
+    <p>Le site est hébergé en France, sur les infrastructures d'OVH SAS : vos données de connexion ne font l'objet d'aucun transfert hors de l'Union européenne de ce fait. En revanche, les polices de caractères sont chargées depuis les serveurs de Google LLC, qui reçoit à cette occasion votre adresse IP.</p>
     <p>Conformément au règlement (UE) 2016/679 et à la loi « Informatique et Libertés », vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité sur vos données. Pour l'exercer, écrivez à <a href="mailto:eva.buron@impulse-conseil.com">eva.buron@impulse-conseil.com</a>. Vous pouvez également introduire une réclamation auprès de la CNIL — <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>.</p>
 
     <h2>Cookies</h2>
@@ -274,7 +289,11 @@
   </main>
 
   <footer>
-    <span class="footer-logo">IMPULSE</span>
+    <a href="/" class="footer-logo" aria-label="IMPULSE - retour a l'accueil">
+      <svg viewBox="0 0 610 106" height="22" width="auto" role="img" aria-label="IMPULSE" style="display:block;">
+        <use href="#impulse-logo" />
+      </svg>
+    </a>
     <p class="footer-copy">© 2026 IMPULSE — SASU · Tous droits réservés.</p>
     <p class="footer-legal">Management de transition opérationnel &amp; conseil en logement social</p>
   </footer>
