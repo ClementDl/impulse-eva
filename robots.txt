@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://impulse-conseil.com/sitemap.xml

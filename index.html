@@ -3,15 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="IMPULSE – Eva Buron, experte en management de transition et conseil pour les bailleurs sociaux. +10 ans d'expérience en gestion locative, pilotage opérationnel et conduite du changement." />
+  <meta name="description" content="Management de transition pour bailleurs sociaux : gestion locative, quittancement, recouvrement, conduite du changement. Eva Buron, +10 ans de terrain, Île-de-France." />
   <meta name="keywords" content="management de transition, logement social, bailleurs sociaux, gestion locative, conduite du changement, Eva Buron, IMPULSE" />
   <meta name="author" content="Eva Buron" />
   <meta property="og:title" content="IMPULSE — Management de transition & conseil | Eva Buron" />
   <meta property="og:description" content="Experte en management de transition pour les bailleurs sociaux. +10 ans d'expérience." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://impulse-conseil.com/" />
+  <meta property="og:image" content="https://impulse-conseil.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://impulse-conseil.com/" />
   <meta name="robots" content="index, follow" />
   <title>IMPULSE — Management de transition & conseil | Eva Buron</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "IMPULSE",
+    "legalName": "IMPULSE SASU",
+    "description": "Management de transition opérationnel et conseil pour les bailleurs sociaux : gestion locative, quittancement, recouvrement, conduite du changement.",
+    "url": "https://impulse-conseil.com/",
+    "image": "https://impulse-conseil.com/og-image.jpg",
+    "telephone": "+33686492754",
+    "email": "eva.buron@impulse-conseil.com",
+    "vatID": "FR31938204732",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3 allée Jacques Cartier",
+      "postalCode": "78560",
+      "addressLocality": "Le Port-Marly",
+      "addressCountry": "FR"
+    },
+    "areaServed": { "@type": "AdministrativeArea", "name": "Île-de-France" },
+    "knowsAbout": ["Management de transition", "Logement social", "Gestion locative", "Quittancement", "Recouvrement", "Conduite du changement"],
+    "founder": {
+      "@type": "Person",
+      "name": "Eva Buron",
+      "jobTitle": "Manager de transition — logement social",
+      "sameAs": ["https://www.linkedin.com/in/eva-buron-442701120/"]
+    }
+  }
+  </script>
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
   <!-- Google Fonts -->
@@ -996,7 +1031,7 @@
   <nav id="nav" role="navigation" aria-label="Navigation principale">
     <div style="display:flex;flex-direction:column;align-items:flex-start;gap:0.2rem;">
       <a href="#" aria-label="IMPULSE - retour en haut" style="display:block;line-height:0;">
-        <svg viewBox="0 0 610 106" height="32" width="auto" role="img" aria-label="IMPULSE"
+        <svg viewBox="0 0 610 106" height="32" role="img" aria-label="IMPULSE"
              style="display:block;color:var(--text);transition:color 0.4s ease;">
           <use href="#impulse-logo" />
         </svg>
@@ -1027,9 +1062,7 @@
     <div class="hero-content">
 
 
-      <h1 class="hero-h1" id="heroH1" aria-label="Expert en logement social">
-        <!-- Words inserted by JS -->
-      </h1>
+      <h1 class="hero-h1" id="heroH1">Management de transition opérationnel</h1>
 
       <div class="hero-rule" aria-hidden="true"></div>
 
@@ -1350,7 +1383,7 @@
   ==================================================== -->
   <footer>
     <a href="#" class="footer-logo" aria-label="IMPULSE - retour en haut">
-      <svg viewBox="0 0 610 106" height="22" width="auto" role="img" aria-label="IMPULSE" style="display:block;">
+      <svg viewBox="0 0 610 106" height="22" role="img" aria-label="IMPULSE" style="display:block;">
         <use href="#impulse-logo" />
       </svg>
     </a>
@@ -1415,6 +1448,8 @@
     ================================================== */
     const heroH1 = document.getElementById('heroH1');
     const words = ['Management', 'de', 'transition', 'opérationnel'];
+    /* Le texte est en dur dans le HTML pour l'indexation ; on le remplace par la version animee */
+    heroH1.textContent = '';
 
     words.forEach((word, i) => {
       const mask = document.createElement('span');
